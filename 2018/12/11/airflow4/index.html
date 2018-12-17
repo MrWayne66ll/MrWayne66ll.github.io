@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="airflow,python,centos7,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 核心功能1.1 DAGs 有向无环图反映所涉及的task的依赖关系  注：搜索dag的时候，airflow只会关注同事包含”DAG”和”airflow”字样的py文件 1.2 scope airflow将加载任何可以从DAG file中import的DAG对象，但是它们必须出现在globals()中，例如下面的文件，只有tag_1会被加载，tag_2只会出现在本地scope中1234dag_">
+<meta name="keywords" content="airflow,python,centos7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="airflow 文档学习(二) - 概念">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/airflow4/index.html">
+<meta property="og:site_name" content="枫川棂">
+<meta property="og:description" content="1. 核心功能1.1 DAGs 有向无环图反映所涉及的task的依赖关系  注：搜索dag的时候，airflow只会关注同事包含”DAG”和”airflow”字样的py文件 1.2 scope airflow将加载任何可以从DAG file中import的DAG对象，但是它们必须出现在globals()中，例如下面的文件，只有tag_1会被加载，tag_2只会出现在本地scope中1234dag_">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-17T10:46:08.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="airflow 文档学习(二) - 概念">
+<meta name="twitter:description" content="1. 核心功能1.1 DAGs 有向无环图反映所涉及的task的依赖关系  注：搜索dag的时候，airflow只会关注同事包含”DAG”和”airflow”字样的py文件 1.2 scope airflow将加载任何可以从DAG file中import的DAG对象，但是它们必须出现在globals()中，例如下面的文件，只有tag_1会被加载，tag_2只会出现在本地scope中1234dag_">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/11/airflow4/">
+
+
+
+
+
+  <title>airflow 文档学习(二) - 概念 | 枫川棂</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枫川棂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Come From FCL.PDD</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/airflow4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fengchuanling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枫川棂">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">airflow 文档学习(二) - 概念</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T18:31:51+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-框架/" itemprop="url" rel="index">
+                    <span itemprop="name">python-框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-核心功能"><a href="#1-核心功能" class="headerlink" title="1. 核心功能"></a>1. 核心功能</h1><h3 id="1-1-DAGs"><a href="#1-1-DAGs" class="headerlink" title="1.1 DAGs"></a>1.1 DAGs</h3><blockquote>
+<p>有向无环图<br><br>反映所涉及的task的依赖关系</p>
+</blockquote>
+<p>注：搜索dag的时候，airflow只会关注同事包含”DAG”和”airflow”字样的py文件</p>
+<h3 id="1-2-scope"><a href="#1-2-scope" class="headerlink" title="1.2 scope"></a>1.2 scope</h3><blockquote>
+<p>airflow将加载任何可以从DAG file中import的DAG对象，但是它们必须出现在globals()中，例如下面的文件，只有tag_1会被加载，tag_2只会出现在本地scope中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dag_1 = DAG(&apos;this_dag_will_be_discovered&apos;)</span><br><span class="line">def my_function():</span><br><span class="line">dag_2 = DAG(&apos;but_this_dag_will_not&apos;)</span><br><span class="line">my_function()</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="1-3-Default-Arguments"><a href="#1-3-Default-Arguments" class="headerlink" title="1.3 Default Arguments"></a>1.3 Default Arguments</h3><blockquote>
+<p>如果一个字典default_args被传给一个DAGs，它将会将其运用到所有的它的operator中。这使得复用default_args变得非常的方便</p>
+</blockquote>
+<h3 id="1-4-Context-Manager"><a href="#1-4-Context-Manager" class="headerlink" title="1.4 Context Manager"></a>1.4 Context Manager</h3><blockquote>
+<p>dags可以被当做一个管理器，去自动的分配新的operators给dag</p>
+</blockquote>
+<h3 id="1-5-Operators"><a href="#1-5-Operators" class="headerlink" title="1.5 Operators"></a>1.5 Operators</h3><blockquote>
+<p>dags描述的是怎么去跑一个工作流，operators决定实际做什么。<br><br>一个operator描述了在一个工作流中的单个task。operators经常但不总是原子的，这意味着他们可以独立存在而不需要去和别的operator分享资源。DAG将确保operators以正确的顺序运行，在这些依赖之外，operator通常是独立运行的，甚至他们肯能运行在不同的机器上。<br><br>这是个非常微妙的关键点：事实上，如果两个operator需要去共享一些信息，就像文件名或者一些小的数据，你应该去考虑将他们合并到一个operator中，如果上述情况确实是无法避免的，airflow有operator的交叉通信（xcom）在文档中有描述。<br><br>并且airflow提供了非常多的通用operator：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BashOperator </span><br><span class="line">PythonOperator </span><br><span class="line">EmailOperator</span><br><span class="line">SimpleHttpOperator 等等</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="1-6-DAG-Assignment"><a href="#1-6-DAG-Assignment" class="headerlink" title="1.6 DAG Assignment"></a>1.6 DAG Assignment</h3><blockquote>
+<p>operator不用立马被分配给一个dag，但是，一旦operator被分配给了一个dag，它将无法被转移或者是取消分配。dag的分配在operator被创建之后可以被非常明确的完成，通过延期分配或者从其他operator推断的方式<br><br>例如下面的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dag = DAG(&apos;my_dag&apos;, start_date=datetime(2016, 1, 1))</span><br><span class="line"># sets the DAG explicitly</span><br><span class="line">explicit_op = DummyOperator(task_id=&apos;op1&apos;, dag=dag)</span><br><span class="line"># deferred DAG assignment</span><br><span class="line">deferred_op = DummyOperator(task_id=&apos;op2&apos;)</span><br><span class="line">deferred_op.dag = dag</span><br><span class="line"># inferred DAG assignment (linked operators must be in the same DAG)</span><br><span class="line">inferred_op = DummyOperator(task_id=&apos;op3&apos;)</span><br><span class="line">inferred_op.set_upstream(deferred_op)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="1-7-Bitshift-Composition"><a href="#1-7-Bitshift-Composition" class="headerlink" title="1.7 Bitshift Composition"></a>1.7 Bitshift Composition</h3><blockquote>
+<p>在以前，operator的关系描述是通过set_upstream()和set_downstream()方法，在1.8 之后可以通过&lt;&lt;和&gt;&gt;代替依赖方法。</p>
+</blockquote>
+<h3 id="1-8-Tasks"><a href="#1-8-Tasks" class="headerlink" title="1.8 Tasks"></a>1.8 Tasks</h3><blockquote>
+<p>当一个operator被实例化之后，它就被称为是一个task。实例化在调用抽象operator时定义了具体的值，同时，参数化之后的task会称为dag的一个节点。</p>
+</blockquote>
+<h3 id="1-9-Task-Instances"><a href="#1-9-Task-Instances" class="headerlink" title="1.9 Task Instances"></a>1.9 Task Instances</h3><blockquote>
+<p>一个task实例代表一个task的特定运行，其特征在于dag、任务、和时间点的组合。<br><br>它拥有运行状态：running、success、failed、skipped、up for retry等</p>
+</blockquote>
+<h3 id="1-10-Workflows"><a href="#1-10-Workflows" class="headerlink" title="1.10 Workflows"></a>1.10 Workflows</h3><blockquote>
+<p>通过组合dags和operators，你会创建TaskInstances，你可以创建复杂的工作流。</p>
+</blockquote>
+<h1 id="2-Additional-Functionality"><a href="#2-Additional-Functionality" class="headerlink" title="2. Additional Functionality"></a>2. Additional Functionality</h1><h3 id="2-1-Hooks"><a href="#2-1-Hooks" class="headerlink" title="2.1 Hooks"></a>2.1 Hooks</h3><blockquote>
+<p>Hooks是连接一些平台和数据库的接口，类似于 Hive, S3, MySQL, Postgres, HDFS, Pig。hooks尽可能的实现了通用接口，并且充当operator。还需要使用airflow.models.Connection 模型来检索主机名和身份认证信息，hooks将身份认证信息和代码放在管道之外，集中在元数据库中。</p>
+</blockquote>
+<h3 id="2-2-pools"><a href="#2-2-pools" class="headerlink" title="2.2 pools"></a>2.2 pools</h3><blockquote>
+<p>一些系统会因为太多的进程不堪重负，airflow的pool可以被用作限制任意的task的运行。task可以在创建时通过参数指定存在的pool名称。<br><br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">aggregate_db_message_job = BashOperator(</span><br><span class="line">task_id=&apos;aggregate_db_message_job&apos;,</span><br><span class="line">execution_timeout=timedelta(hours=3),</span><br><span class="line">pool=&apos;ep_data_pipeline_db_msg_agg&apos;,</span><br><span class="line">bash_command=aggregate_db_message_job_cmd,</span><br><span class="line">dag=dag)</span><br><span class="line">aggregate_db_message_job.set_upstream(wait_for_empty_queue)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>pool中可以使用priority_weight参数去定义他的在队列中的权重，并且决定哪个task先行执行。<br><br>当容量被撑满时，task将会放入计划执行，一旦有容量，可运行的task和他们的状态将会被在前端展示，当插槽空闲，队列中的task将会基于权重进行排序执行。</p>
+</blockquote>
+<h3 id="2-3-Connections"><a href="#2-3-Connections" class="headerlink" title="2.3 Connections"></a>2.3 Connections</h3><blockquote>
+<p>外部系统的connection信息被存储在airflow的元数据库中，airflow的管道可以很简单地引用被集中管理的conn_id,无需另外进行操作。<br><br>当许多的connections被定义在同一个conn_id下，在这种情况下，当hooks使用get_connection方法时，airflow将随机选择一个connection，当重试时允许一些基本的负载均衡和容错。<br><br>一些hooks有默认的conn_id，当operators使用这个hook时不需要一个明确的conn_id。例如：PostgresHook的默认conn_id是postgres_default</p>
+</blockquote>
+<h3 id="2-4-Queues"><a href="#2-4-Queues" class="headerlink" title="2.4 Queues"></a>2.4 Queues</h3><blockquote>
+<p>当我们使用CeleryExecutor时，被塞入celery队列的task是可以被规定的，队列是BaseOperator的属性，所以任何task可以被分配到任何的队列中，而默认的队列环境是在配置文件的celery下的default_queue中配置的。<br><br>workers可以监听一个或多个队列中的task，当一个worker启动的时候（使用airflow worker命令），一个以逗号分隔的对列名可以被指定(airflow worker -q spark)，这个worker将只会选择那些被连接到指定对列的task。</p>
+</blockquote>
+<h3 id="2-5-XComs"><a href="#2-5-XComs" class="headerlink" title="2.5 XComs"></a>2.5 XComs</h3><blockquote>
+<p>XComs使得tasks可以交换信息，允许更加细微的控制形式和分享状态。XComs原则上定义成key、value和timestamp，但是也可以跟踪一些属性，例如创建XCom的task/DAG。<br><br>XComs可以被pushed或者pulled，当一个task发送一个xcom，这个xcom是普遍可获得的。task可以被发送通过使用方法xcom_push()，此外，当一个task返回一个值时（不管是operators的execute()方法还是PythonOperators的python_callable方法），一个包含着返回值的xcom会自动发送。<br><br>tasks调用xcom_pull()去接受xcoms，可选择的根据key、task_ids、dag_id进行过滤。默认的，xcom_pull()在获得值时会根据keys自动筛选执行方法。<br><br>如果xcom_pull被传了一个task_id，则对应task最近一次的xcom值会被返回，如果一组task_ids传过去，会返回一组对应的xcom值<br><br>也可以直接在模板中获取xcom，例如：SELECT * FROM { { task_instance.xcom_pull(task_ids=’foo’, key=’table_name’) } }<br><br>值得注意的是，xcom与variable非常相似，但它是专门用于任务之间的通信而不是全局设置</p>
+</blockquote>
+<h3 id="2-6-Variables"><a href="#2-6-Variables" class="headerlink" title="2.6 Variables"></a>2.6 Variables</h3><blockquote>
+<p>variables是一种传统的方式去存储和取回任意的内容或者是key-value形式的airflow的设置，它可以在前端界面、代码或者cli中进行增删改查的操作，当你定义管道代码，就可非常方便的使用，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from airflow.models import Variable</span><br><span class="line">foo = Variable.get(&quot;foo&quot;)</span><br><span class="line">bar = Variable.get(&quot;bar&quot;, deserialize_json=True)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>你可以使用variables在一个jinjia模板中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#123; &#123; var.value.&lt;variable_name&gt; &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-7-Branching"><a href="#2-7-Branching" class="headerlink" title="2.7 Branching"></a>2.7 Branching</h3><blockquote>
+<p>有时候你需要你的工作流进行分支，或者是根据任意上游发生的条件走某条路。这其中一种实现方法就是使用BranchPythonOperator<br><br>BranchPythonOperator和PythonOperator十分相似，除了python会期望一个python_callable去返回一个task_id，返回的task_id跳过所有其他路径，python的返回函数的task_id必须直接引用BranchPythonOperator任务下游的任务。<br></p>
+</blockquote>
+<p>注意，在BranchPythonOperator中使用depend_on_past = True下游的任务在逻辑上是不合理的，因为跳过状态总是导致依赖于过去成功的块任务。如果非要这样的话可以中间建立一个虚拟任务进行过度。</p>
+<h3 id="2-8-SubDAGs"><a href="#2-8-SubDAGs" class="headerlink" title="2.8 SubDAGs"></a>2.8 SubDAGs</h3><h3 id="2-9-SLAs"><a href="#2-9-SLAs" class="headerlink" title="2.9 SLAs"></a>2.9 SLAs</h3><blockquote>
+<p>记录失败的过错的sla任务列表</p>
+</blockquote>
+<h3 id="2-10-Trigger-Rules"><a href="#2-10-Trigger-Rules" class="headerlink" title="2.10 Trigger Rules"></a>2.10 Trigger Rules</h3><blockquote>
+<p>虽然正常的工作流行为是在所有的直接上游任务成功之后触发的，但是airflow允许更为复杂的依赖项。<br><br>所有的operators有一个trigger_rule，用来定义生成的任务被触发的规则，trigger_rule的默认参数是all_success，以下为别的参数解释：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">all_success: (default) 所有的父级任务成功</span><br><span class="line">all_failed: 所有的父级任务失败，或者上游状态为失败</span><br><span class="line">all_done: 所有的父级任务执行完成</span><br><span class="line">one_failed: 至少一个失败，并且不会等待所有任务执行完成</span><br><span class="line">one_success: 至少一个成功，并且不会等待所有任务执行完成</span><br><span class="line">dummy: 依赖只是为了展示，随意触发</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>注意，这些可以与depends_on_past结合使用，当设置为true时，如果任务的先前计划未成功，则不会触发</p>
+<h3 id="2-11-Latest-Run-Only"><a href="#2-11-Latest-Run-Only" class="headerlink" title="2.11 Latest Run Only"></a>2.11 Latest Run Only</h3><blockquote>
+<p>标准工作流行为涉及为特定日期/时间范围内运行的一系列任务，但是，某些工作流执行的任务与运行时间无关，但是需要按计划运行，就像标准的cron作业一样，在这些情况下，暂停期间错过的回填运行作业会浪费cpu周期。</p>
+</blockquote>
+<h3 id="2-12-Zombies-amp-Undeads"><a href="#2-12-Zombies-amp-Undeads" class="headerlink" title="2.12 Zombies &amp; Undeads"></a>2.12 Zombies &amp; Undeads</h3><blockquote>
+<p>僵尸任务的特点是没有心跳（由工作定期发出）和数据库中的运行状态，当工作节点无法访问数据库的时候，airflow进程在外部被终止或者节点重启的时候，他们可能会发生。僵尸查杀由调度程序的进程定期执行。<br><br>undead进程的特点是存在进程和匹配的心跳，但是airflow不知道此任务在数据库中运行。这种不匹配通常在数据库状态发生改变的时候发生，最有可能是通过删除UI中的任务实例视图中的行，指示任务验证其作为心跳例程的一部分的状态，并在确定他们处于这种不死的状态时终止自身。</p>
+</blockquote>
+<h3 id="2-13-Cluster-Policy"><a href="#2-13-Cluster-Policy" class="headerlink" title="2.13 Cluster Policy"></a>2.13 Cluster Policy</h3><blockquote>
+<p>你本地airflow设置文件可以定义一个策略功能，该功能可以根据其他任务或DAG属性改变其任务属性。</p>
+</blockquote>
+<h3 id="2-14-Documentation-amp-Notes"><a href="#2-14-Documentation-amp-Notes" class="headerlink" title="2.14 Documentation &amp; Notes"></a>2.14 Documentation &amp; Notes</h3><h3 id="2-15-Jinja-Templating"><a href="#2-15-Jinja-Templating" class="headerlink" title="2.15 Jinja Templating"></a>2.15 Jinja Templating</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/airflow/" rel="tag"># airflow</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/centos7/" rel="tag"># centos7</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/09/celery/" rel="next" title="celery 安装及使用">
+                <i class="fa fa-chevron-left"></i> celery 安装及使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">fengchuanling</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-核心功能"><span class="nav-number">1.</span> <span class="nav-text">1. 核心功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-DAGs"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1 DAGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-scope"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2 scope</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Default-Arguments"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3 Default Arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Context-Manager"><span class="nav-number">1.0.4.</span> <span class="nav-text">1.4 Context Manager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-Operators"><span class="nav-number">1.0.5.</span> <span class="nav-text">1.5 Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-DAG-Assignment"><span class="nav-number">1.0.6.</span> <span class="nav-text">1.6 DAG Assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-Bitshift-Composition"><span class="nav-number">1.0.7.</span> <span class="nav-text">1.7 Bitshift Composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-Tasks"><span class="nav-number">1.0.8.</span> <span class="nav-text">1.8 Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-Task-Instances"><span class="nav-number">1.0.9.</span> <span class="nav-text">1.9 Task Instances</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-Workflows"><span class="nav-number">1.0.10.</span> <span class="nav-text">1.10 Workflows</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Additional-Functionality"><span class="nav-number">2.</span> <span class="nav-text">2. Additional Functionality</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Hooks"><span class="nav-number">2.0.1.</span> <span class="nav-text">2.1 Hooks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-pools"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.2 pools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Connections"><span class="nav-number">2.0.3.</span> <span class="nav-text">2.3 Connections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-Queues"><span class="nav-number">2.0.4.</span> <span class="nav-text">2.4 Queues</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-XComs"><span class="nav-number">2.0.5.</span> <span class="nav-text">2.5 XComs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-Variables"><span class="nav-number">2.0.6.</span> <span class="nav-text">2.6 Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-Branching"><span class="nav-number">2.0.7.</span> <span class="nav-text">2.7 Branching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-SubDAGs"><span class="nav-number">2.0.8.</span> <span class="nav-text">2.8 SubDAGs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-SLAs"><span class="nav-number">2.0.9.</span> <span class="nav-text">2.9 SLAs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-Trigger-Rules"><span class="nav-number">2.0.10.</span> <span class="nav-text">2.10 Trigger Rules</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-Latest-Run-Only"><span class="nav-number">2.0.11.</span> <span class="nav-text">2.11 Latest Run Only</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-Zombies-amp-Undeads"><span class="nav-number">2.0.12.</span> <span class="nav-text">2.12 Zombies &amp; Undeads</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-13-Cluster-Policy"><span class="nav-number">2.0.13.</span> <span class="nav-text">2.13 Cluster Policy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-14-Documentation-amp-Notes"><span class="nav-number">2.0.14.</span> <span class="nav-text">2.14 Documentation &amp; Notes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-15-Jinja-Templating"><span class="nav-number">2.0.15.</span> <span class="nav-text">2.15 Jinja Templating</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fengchuanling</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
