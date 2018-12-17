@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mysql,sql,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="sql 回顾（mysql）##1. mysql数据类型  一共三种：Text、Number、Data/Time  1.1 Text12345678910111）CHAR(size)	        最大2552）VARCHAR(size)	如果大于255，则自动转化为TEXT3）TINYTEXT		存放最大长度为2554）TEXT			存放最大长度为655355）BLOB			用于BLOBs，存放">
+<meta name="keywords" content="mysql,sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql 回顾（mysql）">
+<meta property="og:url" content="http://yoursite.com/2018/12/16/sql/index.html">
+<meta property="og:site_name" content="枫川棂">
+<meta property="og:description" content="sql 回顾（mysql）##1. mysql数据类型  一共三种：Text、Number、Data/Time  1.1 Text12345678910111）CHAR(size)	        最大2552）VARCHAR(size)	如果大于255，则自动转化为TEXT3）TINYTEXT		存放最大长度为2554）TEXT			存放最大长度为655355）BLOB			用于BLOBs，存放">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151502063-1623200018.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151520612-84957277.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151529590-636354180.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151543827-795907385.gif">
+<meta property="og:updated_time" content="2018-12-17T10:56:26.621Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql 回顾（mysql）">
+<meta name="twitter:description" content="sql 回顾（mysql）##1. mysql数据类型  一共三种：Text、Number、Data/Time  1.1 Text12345678910111）CHAR(size)	        最大2552）VARCHAR(size)	如果大于255，则自动转化为TEXT3）TINYTEXT		存放最大长度为2554）TEXT			存放最大长度为655355）BLOB			用于BLOBs，存放">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151502063-1623200018.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/16/sql/">
+
+
+
+
+
+  <title>sql 回顾（mysql） | 枫川棂</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枫川棂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Come From FCL.PDD</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/sql/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fengchuanling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枫川棂">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sql 回顾（mysql）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-16T18:54:28+08:00">
+                2018-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index">
+                    <span itemprop="name">sql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="sql-回顾（mysql）"><a href="#sql-回顾（mysql）" class="headerlink" title="sql 回顾（mysql）"></a>sql 回顾（mysql）</h1><p>##1. mysql数据类型</p>
+<blockquote>
+<p>一共三种：Text、Number、Data/Time</p>
+</blockquote>
+<h3 id="1-1-Text"><a href="#1-1-Text" class="headerlink" title="1.1 Text"></a>1.1 Text</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1）CHAR(size)	        最大255</span><br><span class="line">2）VARCHAR(size)	如果大于255，则自动转化为TEXT</span><br><span class="line">3）TINYTEXT		存放最大长度为255</span><br><span class="line">4）TEXT			存放最大长度为65535</span><br><span class="line">5）BLOB			用于BLOBs，存放最多65535</span><br><span class="line">6）MEDIUMTEXT	        存放最大长度为16,777,215</span><br><span class="line">7）MEDIUMBLOB	        存放最大长度为16,777,215</span><br><span class="line">8）LONGTEXT		存放最大长度为4,294,967,295</span><br><span class="line">9）LONGBLOB		存放最大长度为4,294,967,295</span><br><span class="line">10）ENUM(x,y,z,etc.)</span><br><span class="line">11）SET</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Number"><a href="#1-2-Number" class="headerlink" title="1.2 Number"></a>1.2 Number</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1）TINYINT(size)	带符号-128到127，无符号0到255</span><br><span class="line">2）SMALLINT(size)	带符号-32768到32767，无符号0到65535</span><br><span class="line">3）MEDIUMINT(size)	带符号-8388608到8388607，无符号0到16777215</span><br><span class="line">4）INT(size)		带符号-2147483648到2147483647，无符号0到4294967295</span><br><span class="line">5）BIGINT(size)		带符号-9223372036854775808到9223372036854775807，无符号0到18446744073709551615</span><br><span class="line">6）FLOAT(size,d)	带有浮动小数点的小数字。在 size 参数中规定显示最大位数。在 d 参数中规定小数点右侧的最大位数。</span><br><span class="line">7）DOUBLE(size,d)	同上</span><br><span class="line">8）DECIMAL(size,d)	作为字符串存储的 DOUBLE 类型，允许固定的小数点。在 size 参数中规定显示最大位数。在 d 参数中规定小数点右侧的最大位数。</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-Date"><a href="#1-3-Date" class="headerlink" title="1.3 Date"></a>1.3 Date</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1）DATE()		格式：YYYY-MM-DD</span><br><span class="line">2）DATETIME()	        格式：YYYY-MM-DD HH:MM:SS</span><br><span class="line">3）TIMESTAMP()	        时间戳，支持范围：从 &apos;1970-01-01 00:00:01&apos; UTC 到 &apos;2038-01-09 03:14:07&apos; UTC</span><br><span class="line">4）TIME()		格式：HH:MM:SS</span><br><span class="line">5）YEAR()		2 位或 4 位格式的年。4 位格式所允许的值：1901 到 2155。2 位格式所允许的值：70 到 69，表示从 1970 到 2069。</span><br></pre></td></tr></table></figure>
+<h2 id="2-CRUD"><a href="#2-CRUD" class="headerlink" title="2. CRUD"></a>2. CRUD</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select column_name from table_name 		                               // 查看表的某些列</span><br><span class="line">select distinct column_name from table_name		                       // 查看表的某些列，并且行去重</span><br><span class="line">where	                                                                       // 筛选条件</span><br><span class="line">and or</span><br><span class="line">order by column_name ASC|DESC		                                        // 根据某列数据进行排序</span><br><span class="line">insert into table_name value (value1,value2,...)	                        // 表插入数据</span><br><span class="line">insert into table_name (column_name,column_name,...) values (v1,v2,v3,...)	// 表指定列插入数据</span><br><span class="line">update table_name set column_name1=value1,column_name2=value2,... where ......	// 更新表指定行数据</span><br><span class="line">delete from table_name where ......		                                // 与truncate table_name不同的是，可回滚</span><br></pre></td></tr></table></figure>
+<h2 id="3-高级查询"><a href="#3-高级查询" class="headerlink" title="3. 高级查询"></a>3. 高级查询</h2><h4 id="1）limit"><a href="#1）limit" class="headerlink" title="1）limit"></a>1）limit</h4><blockquote>
+<p>select * from table_name limit x    // 限制行数</p>
+</blockquote>
+<h4 id="2）like"><a href="#2）like" class="headerlink" title="2）like"></a>2）like</h4><blockquote>
+<p>select * from table_name where name like ‘…’    // 定义模糊查询</p>
+</blockquote>
+<h4 id="3）通配符"><a href="#3）通配符" class="headerlink" title="3）通配符"></a>3）通配符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">%					代替0个或多个字符</span><br><span class="line">_					代替一个字符</span><br><span class="line">[charlist]				字符列表中的任意一个字符</span><br><span class="line">[^charlist]/[!charlist]	                不在字符列表中的任意一个字符		</span><br><span class="line">^					以此开头字符</span><br></pre></td></tr></table></figure>
+<h4 id="4）in"><a href="#4）in" class="headerlink" title="4）in"></a>4）in</h4><blockquote>
+<p>select * from table_name where name in (……)    // 允许在where中定义多个值</p>
+</blockquote>
+<h4 id="5）between…and…"><a href="#5）between…and…" class="headerlink" title="5）between…and…"></a>5）between…and…</h4><blockquote>
+<p>select * from table_name where column_name between x and y    // 在某个范围内的</p>
+</blockquote>
+<h4 id="6）not"><a href="#6）not" class="headerlink" title="6）not"></a>6）not</h4><blockquote>
+<p>可以加在in和between前面表示取反</p>
+</blockquote>
+<h4 id="7）as"><a href="#7）as" class="headerlink" title="7）as"></a>7）as</h4><blockquote>
+<p>可以给列或者表取别名</p>
+</blockquote>
+<h4 id="8）join"><a href="#8）join" class="headerlink" title="8）join"></a>8）join</h4><blockquote>
+<p>inner join：如果表中至少一个匹配，则返回行            // 两边都要满足条件<br><br><img src="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151502063-1623200018.gif" alt=""><br>left join：即使右表中没有匹配，也返回行        // 满足左边<br><br><img src="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151520612-84957277.gif" alt=""><br>right join：即使左表中没有匹配，也返回行            // 满足右边<br><br><img src="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151529590-636354180.gif" alt=""><br>full join：只要其中一个表中存在，则返回行            // 保证两张表的数据全量<br><br><img src="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216151543827-795907385.gif" alt=""></p>
+</blockquote>
+<h4 id="9）union"><a href="#9）union" class="headerlink" title="9）union"></a>9）union</h4><blockquote>
+<p>合并select查询到的结果，需要查询的是相同的字段。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT country FROM Websites</span><br><span class="line">UNION</span><br><span class="line">SELECT country FROM apps</span><br><span class="line">ORDER BY country;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>这样的话两张表中相同的列会进行去重<br><br>可以使用union all进行合并，取消去重</p>
+</blockquote>
+<p>##4. sql索引</p>
+<blockquote>
+<p>在不读取整个表的情况下，索引使数据库能够更快的查找数据<br><br>用户是无法看到索引的，它们只是用来加速查询，但是有索引的表插入数据的时候会更慢一些，因为插入的同时会更新索引<vr><br>语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create index index_name on table_name (column_name)		// 允许使用重复值</span><br><span class="line">create unique index index_name on table_name (column_name)	// 不允许使用重复值</span><br></pre></td></tr></table></figure></vr></p>
+</blockquote>
+<h2 id="5-sql常用函数："><a href="#5-sql常用函数：" class="headerlink" title="5. sql常用函数："></a>5. sql常用函数：</h2><h4 id="Aggregate"><a href="#Aggregate" class="headerlink" title="Aggregate:"></a>Aggregate:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1）AVG()	-	返回平均值</span><br><span class="line">2）COUNT()	-	返回行数</span><br><span class="line">3）FIRST()	-	返回第一个值</span><br><span class="line">4）LAST()	-	返回最后一个值</span><br><span class="line">5）MAX()	-	返回最大值</span><br><span class="line">6）MIN()	-	返回最小值</span><br><span class="line">7）SUM()	-	返回总和</span><br></pre></td></tr></table></figure>
+<h4 id="Scalar："><a href="#Scalar：" class="headerlink" title="Scalar："></a>Scalar：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1）UCASE()	        -	将某个字段转换为大写</span><br><span class="line">2）LCASE()	        -	将某个字段转化为小写</span><br><span class="line">3）MID()	        -	从某个文本字段提取字符</span><br><span class="line">4）SubString(字段,1,end)	-	从某个文本字段提取字符</span><br><span class="line">5）LEN()	        -	返回某个文本字段的长度</span><br><span class="line">6）ROUND()	        -	对某个数值字段进行指定小数位数的四舍五入</span><br><span class="line">7）NOW()	        -	返回当前系统的日期和时间</span><br><span class="line">8）FORMAT()	        -	格式化某个字段的显示方式</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/sql/" rel="tag"># sql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/11/airflow4/" rel="next" title="airflow 文档学习(二) - 概念">
+                <i class="fa fa-chevron-left"></i> airflow 文档学习(二) - 概念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">fengchuanling</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql-回顾（mysql）"><span class="nav-number">1.</span> <span class="nav-text">sql 回顾（mysql）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Text"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1 Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Number"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2 Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Date"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3 Date</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CRUD"><span class="nav-number">1.1.</span> <span class="nav-text">2. CRUD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-高级查询"><span class="nav-number">1.2.</span> <span class="nav-text">3. 高级查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）limit"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1）limit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）like"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">2）like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）通配符"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">3）通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）in"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">4）in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）between…and…"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">5）between…and…</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6）not"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">6）not</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7）as"><span class="nav-number">1.2.0.7.</span> <span class="nav-text">7）as</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8）join"><span class="nav-number">1.2.0.8.</span> <span class="nav-text">8）join</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9）union"><span class="nav-number">1.2.0.9.</span> <span class="nav-text">9）union</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#5-sql常用函数："><span class="nav-number">1.3.</span> <span class="nav-text">5. sql常用函数：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Aggregate"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Aggregate:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalar："><span class="nav-number">1.3.0.2.</span> <span class="nav-text">Scalar：</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fengchuanling</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
