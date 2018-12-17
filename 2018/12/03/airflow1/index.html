@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="airflow,centos7,python,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="枫川棂">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="#1. airflow完整安装流程 ##1.1 airflow 基础安装 #####1）默认自带python2环境，自行安装pip12yum -y install epel-releaseyum install python-pip #####2）进行pip的更新，否则很多安装会报错12pip install --upgrade pippip install --upgrade setuptool">
+<meta name="keywords" content="airflow,centos7,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7 超完整安装airflow">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/airflow1/index.html">
 <meta property="og:site_name" content="枫川棂">
+<meta property="og:description" content="#1. airflow完整安装流程 ##1.1 airflow 基础安装 #####1）默认自带python2环境，自行安装pip12yum -y install epel-releaseyum install python-pip #####2）进行pip的更新，否则很多安装会报错12pip install --upgrade pippip install --upgrade setuptool">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-17T09:39:26.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="枫川棂">
+<meta name="twitter:title" content="centos7 超完整安装airflow">
+<meta name="twitter:description" content="#1. airflow完整安装流程 ##1.1 airflow 基础安装 #####1）默认自带python2环境，自行安装pip12yum -y install epel-releaseyum install python-pip #####2）进行pip的更新，否则很多安装会报错12pip install --upgrade pippip install --upgrade setuptool">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/03/airflow1/">
 
 
 
 
 
-  <title>枫川棂</title>
+  <title>centos7 超完整安装airflow | 枫川棂</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -214,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/03/airflow1/" itemprop="url">centos7 超完整安装airflow</a></h1>
+          <h1 class="post-title" itemprop="name headline">centos7 超完整安装airflow</h1>
         
 
         <div class="post-meta">
@@ -320,9 +322,7 @@
       
 
       
-        
-          
-            <p>#1. airflow完整安装流程</p>
+        <p>#1. airflow完整安装流程</p>
 <p>##1.1 airflow 基础安装</p>
 <p>#####1）默认自带python2环境，自行安装pip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure></p>
 <p>#####2）进行pip的更新，否则很多安装会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure></p>
@@ -392,8 +392,6 @@
 <p>#####5）使用命令或者web ui进行查看管理</p>
 </blockquote>
 
-          
-        
       
     </div>
     
@@ -408,14 +406,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/airflow/" rel="tag"># airflow</a>
+          
+            <a href="/tags/centos7/" rel="tag"># centos7</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -425,10 +433,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -436,6 +445,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -650,6 +663,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
