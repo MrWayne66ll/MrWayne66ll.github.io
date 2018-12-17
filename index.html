@@ -229,6 +229,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/airflow3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fengchuanling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枫川棂">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/airflow3/" itemprop="url">airflow-api 插件的安装与使用介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T17:54:29+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python-框架/" itemprop="url" rel="index">
+                    <span itemprop="name">python-框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-安装插件airflow-rest-api"><a href="#1-安装插件airflow-rest-api" class="headerlink" title="1. 安装插件airflow-rest-api"></a>1. 安装插件<a href="https://github.com/teamclairvoyant/airflow-rest-api-plugin" target="_blank" rel="noopener">airflow-rest-api</a></h1><blockquote>
+<p>1）获取<br><br><code>wget https://github.com/teamclairvoyant/airflow-rest-api-plugin/archive/master.zip</code><br><br>2）将plugin文件夹下的内容放入airflow/plugin/下，若不存在则新建<br><br>3）重启airflow</p>
+</blockquote>
+<h1 id="2-api使用介绍"><a href="#2-api使用介绍" class="headerlink" title="2. api使用介绍"></a>2. api使用介绍</h1><h3 id="2-1-获取airflow版本"><a href="#2-1-获取airflow版本" class="headerlink" title="2.1 获取airflow版本"></a>2.1 获取airflow版本</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=version</p>
+</blockquote>
+<h3 id="2-2-获取airflow-api-plugin的版本"><a href="#2-2-获取airflow-api-plugin的版本" class="headerlink" title="2.2 获取airflow-api-plugin的版本"></a>2.2 获取airflow-api-plugin的版本</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=rest_api_plugin_version</p>
+</blockquote>
+<h3 id="2-3-渲染任务实例模板"><a href="#2-3-渲染任务实例模板" class="headerlink" title="2.3 渲染任务实例模板"></a>2.3 渲染任务实例模板</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=render<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_id	任务id</span><br><span class="line">3）execution_date	dag的执行日期，例如：2017-01-02T03：04：05</span><br><span class="line">4）subdir(可选)	从中查找文件位置或目录</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-4-操作变量"><a href="#2-4-操作变量" class="headerlink" title="2.4 操作变量"></a>2.4 操作变量</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=variables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">参数(均为可选参数)：</span><br><span class="line">1）set：设置变量，key value</span><br><span class="line">2）get：获取变量</span><br><span class="line">3）json：布尔值，反序列化json</span><br><span class="line">4）default：如果变量不存在，则返回默认值</span><br><span class="line">5）import：从json文件导入变量</span><br><span class="line">6）export：从json文件导出变量</span><br><span class="line">7）delete：删除变量</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-5-操作连接"><a href="#2-5-操作连接" class="headerlink" title="2.5 操作连接"></a>2.5 操作连接</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=connections<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">参数(均为可选参数)：</span><br><span class="line">1）list：布尔型，列出所有连接</span><br><span class="line">2）add：增加连接</span><br><span class="line">3）delete：布尔型，删除连接</span><br><span class="line">4）conn_id：添加/删除连接所需要的连接id</span><br><span class="line">5）conn_id：添加连接所需要的连接url</span><br><span class="line">6）conn_extra：连接的额外字段，添加连接时可选参数</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-6-暂停DAG"><a href="#2-6-暂停DAG" class="headerlink" title="2.6 暂停DAG"></a>2.6 暂停DAG</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=pause<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）subdir：可选参数，从中查找dag的文件位置或者目录</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-7-继续dag"><a href="#2-7-继续dag" class="headerlink" title="2.7 继续dag"></a>2.7 继续dag</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=unpause<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）subdir：可选参数，从中查找dag的文件位置或者目录</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-8-调度任务失败的依赖"><a href="#2-8-调度任务失败的依赖" class="headerlink" title="2.8 调度任务失败的依赖"></a>2.8 调度任务失败的依赖</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=task_failed_deps<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_id</span><br><span class="line">3）execution_date</span><br><span class="line">4）subdir：可选</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-9-触发dag运行"><a href="#2-9-触发dag运行" class="headerlink" title="2.9 触发dag运行"></a>2.9 触发dag运行</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=trigger_dag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）run_id：可选参数，用于dag运行的runid</span><br><span class="line">3）conf：可选参数，传递给触发dag运行的一些配置，（URL Encoded JSON）以&#123;&quot;key&quot;:&quot;value&quot;&#125;的形式</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-10-测试任务实例，但是不检查依赖或者在数据库中记录"><a href="#2-10-测试任务实例，但是不检查依赖或者在数据库中记录" class="headerlink" title="2.10 测试任务实例，但是不检查依赖或者在数据库中记录"></a>2.10 测试任务实例，但是不检查依赖或者在数据库中记录</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_id</span><br><span class="line">3）execution_date</span><br><span class="line">4）subdir：可选参数</span><br><span class="line">5）dryrun：可选参数，布尔型，是否进行干运行</span><br><span class="line">6）task_params：可选参数，将json字典传给task</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-11-获取dag运行状态"><a href="#2-11-获取dag运行状态" class="headerlink" title="2.11 获取dag运行状态"></a>2.11 获取dag运行状态</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=dag_state<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）execution_date</span><br><span class="line">3）subdir：可选参数</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-12-运行单个task实例"><a href="#2-12-运行单个task实例" class="headerlink" title="2.12 运行单个task实例"></a>2.12 运行单个task实例</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_id</span><br><span class="line">3）execution_date</span><br><span class="line">4）subdir：可选参数</span><br><span class="line">5）mark_success：可选参数，布尔型，不运行jobs但是标记为成功</span><br><span class="line">6）force：可选参数，布尔型，忽略先前的运行状态，无论任务是否成功都重新运行</span><br><span class="line">7）pool：可选参数，资源池</span><br><span class="line">8）cfg_path：可选参数，使用配置文件的路径而不用原有的airflow.cfg</span><br><span class="line">9）local：可选参数，布尔值，使用localexecute运行任务</span><br><span class="line">10）ignore_all_dependencies：可选参数，布尔值，忽略所有的非关键依赖项，包括ignore_ti_state和ignore_task_depsstore_true</span><br><span class="line">11）ignore_dependencies：可选，布尔值，忽略特定于任务的依赖关系，例如upstream, depends_on_past还有retry delay dependencies</span><br><span class="line">12）ignore_depends_on_past：可选，布尔值，忽略depends_on_past依赖项，但是尊重上游</span><br><span class="line">13）ship_dag：可选，布尔值，序列化dag并发送给worker</span><br><span class="line">14）pickle：可选：整个dag的序列化pickle对象</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-13-某个dag的所有tasks"><a href="#2-13-某个dag的所有tasks" class="headerlink" title="2.13 某个dag的所有tasks"></a>2.13 某个dag的所有tasks</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=list_tasks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）tree：可选参数，布尔型</span><br><span class="line">3）subdir：可选参数</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-14-在制定范围内运行dag的子部分"><a href="#2-14-在制定范围内运行dag的子部分" class="headerlink" title="2.14 在制定范围内运行dag的子部分"></a>2.14 在制定范围内运行dag的子部分</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=backfill<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_regex：可选参数，用于过滤特定的task_ids以进行回填正则表达式</span><br><span class="line">3）start_date：覆盖start_date YYYY-MM-DD</span><br><span class="line">4）end_date：可选参数，同上覆盖</span><br><span class="line">5）mark_success：可选参数，布尔型，不运行jobs但是标记为成功</span><br><span class="line">6）local：可选参数，布尔型，使用LocalExecutor运行任务</span><br><span class="line">7）donot_pickle：可选参数，不进行尝试将dag对象发给工作人员，只告诉他们dag的运行版本</span><br><span class="line">8）include_adhoc：可选参数，布尔值，包含带有adhoc参数的dags</span><br><span class="line">9）ignore_dependencies：可选参数，布尔值，忽略特定于任务的依赖关系，例如 upstream, depends_on_past, and retry delay dependencies</span><br><span class="line">10）ignore_first_depends_on_past：可选参数，布尔值，仅忽略第一组任务的depends_on_past依赖关系</span><br><span class="line">11）subdir：可选参数，</span><br><span class="line">12）pool：可选参数，资源池</span><br><span class="line">13）dry_run：可选参数，布尔值，是否空运行</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-15-列出所有的dags"><a href="#2-15-列出所有的dags" class="headerlink" title="2.15 列出所有的dags"></a>2.15 列出所有的dags</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=list_dags<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">参数：	</span><br><span class="line">1）subdir：可选参数</span><br><span class="line">2）report：可选参数，布尔型，显示dagbag的加载报告</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-16-启动kerberos票证续订"><a href="#2-16-启动kerberos票证续订" class="headerlink" title="2.16 启动kerberos票证续订"></a>2.16 启动kerberos票证续订</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=kerberos<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">参数（均为可选参数）：</span><br><span class="line">1）principal</span><br><span class="line">2）keytab</span><br><span class="line">3）pid：pid文件位置</span><br><span class="line">4）daemon：布尔值，是否为守护进程</span><br><span class="line">5）stdout：将stdout重定向到文件</span><br><span class="line">6）stderr：将错误重定向到文件</span><br><span class="line">7）log-file：日志文件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-17-启动celery工作节点（worker）"><a href="#2-17-启动celery工作节点（worker）" class="headerlink" title="2.17 启动celery工作节点（worker）"></a>2.17 启动celery工作节点（worker）</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=worker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">参数（均为可选参数）：</span><br><span class="line">1）do_pickle：布尔型，尝试picklg DAG对象发送给worker，而不是让worker运行他们的代码版本</span><br><span class="line">2）queues：逗号分隔的队列列表</span><br><span class="line">3）concurrency：工作进程数</span><br><span class="line">4）pid：pid文件位置</span><br><span class="line">5）daemon：布尔值，是否为守护进程</span><br><span class="line">6）stdout：将stdout重定向到文件</span><br><span class="line">7）stderr：将错误重定向到文件</span><br><span class="line">8）log-file：日志文件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-18-启动celery工作节点（flower）"><a href="#2-18-启动celery工作节点（flower）" class="headerlink" title="2.18 启动celery工作节点（flower）"></a>2.18 启动celery工作节点（flower）</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=flower<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">参数（均为可选参数）：</span><br><span class="line">1）hostname：设置运行服务器的主机名</span><br><span class="line">2）port：运行服务器的端口</span><br><span class="line">3）flower_conf：flower的配置文件</span><br><span class="line">4）broker_api</span><br><span class="line">5）pid：pid文件位置</span><br><span class="line">6）daemon：布尔值，是否为守护进程</span><br><span class="line">7）stdout：将stdout重定向到文件</span><br><span class="line">8）stderr：将错误重定向到文件</span><br><span class="line">9）log-file：日志文件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-19-启动调度程序实例"><a href="#2-19-启动调度程序实例" class="headerlink" title="2.19 启动调度程序实例"></a>2.19 启动调度程序实例</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=scheduler<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">参数（均为可选参数）：</span><br><span class="line">1）dag_id</span><br><span class="line">2）subdir：可选参数，从中查找dag的文件位置或者目录</span><br><span class="line">3）run-duration：设置退出前执行的秒数</span><br><span class="line">4）num_runs：设置退出前执行的次数</span><br><span class="line">5）do_pickle：布尔型，尝试pickle DAG对象发送给worker，而不是让worker运行他们的代码版本</span><br><span class="line">6）pid：pid文件位置</span><br><span class="line">7）daemon：布尔值，是否为守护进程</span><br><span class="line">8）stdout：将stdout重定向到文件</span><br><span class="line">9）stderr：将错误重定向到文件</span><br><span class="line">10）log-file：日志文件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-20-获取task的运行状态"><a href="#2-20-获取task的运行状态" class="headerlink" title="2.20 获取task的运行状态"></a>2.20 获取task的运行状态</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=task_state<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_id</span><br><span class="line">3）execution_date</span><br><span class="line">4）subdir：可选</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-21-CRUD-对pool的操作"><a href="#2-21-CRUD-对pool的操作" class="headerlink" title="2.21 CRUD 对pool的操作"></a>2.21 CRUD 对pool的操作</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=pool<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）set：分别设置池插槽计数和描述。 表单中的预期输入：NAME SLOT_COUNT POOL_DESCRIPTION</span><br><span class="line">2）get：获取池信息</span><br><span class="line">3）delete：删除池</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-22-由worker生成的日志"><a href="#2-22-由worker生成的日志" class="headerlink" title="2.22 由worker生成的日志"></a>2.22 由worker生成的日志</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=serve_logs<br><br>参数：无</p>
+</blockquote>
+<h3 id="2-23-清除一组任务实例"><a href="#2-23-清除一组任务实例" class="headerlink" title="2.23 清除一组任务实例"></a>2.23 清除一组任务实例</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=clear<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">参数：</span><br><span class="line">1）dag_id</span><br><span class="line">2）task_regex：可选参数，用于过滤特定的task_ids以进行回填正则表达式</span><br><span class="line">3）start_date：覆盖start_date YYYY-MM-DD</span><br><span class="line">4）end_date：可选参数，同上覆盖</span><br><span class="line">5）subdir：可选参数</span><br><span class="line">6）upstream：可选，布尔型，包含上游任务</span><br><span class="line">7）downstream：可选，布尔型，包含下游任务</span><br><span class="line">8）no_confirm：可选，布尔型，不要求确认</span><br><span class="line">9）only_failed：可选，布尔型，仅失败的作业</span><br><span class="line">10）only_running：可选，布尔型，仅运行的作业</span><br><span class="line">11）exclude_subdags：可选，布尔型，排除子标记</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-24-发布一个新的dag"><a href="#2-24-发布一个新的dag" class="headerlink" title="2.24 发布一个新的dag"></a>2.24 发布一个新的dag</h3><blockquote>
+<p>POST - http://{HOST}:{PORT}/admin/rest_api/api?api=deploy_dag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">post参数：</span><br><span class="line">1）dag_file：file-上传部署的py文件</span><br><span class="line">2）force：可选，布尔型，文件已存在，是否强制上传</span><br><span class="line">3）pause：可选，布尔型，在创建时强制暂停dag并覆盖&apos;dags_are_paused_at_creation&apos;配置</span><br><span class="line">4）unpause（可选） - 布尔值 -  DAG在创建时将被强制取消暂停，并覆盖&apos;dags_are_paused_at_creation&apos;配置</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-25-刷新一个dag"><a href="#2-25-刷新一个dag" class="headerlink" title="2.25 刷新一个dag"></a>2.25 刷新一个dag</h3><blockquote>
+<p>GET - http://{HOST}:{PORT}/admin/rest_api/api?api=refresh_dag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参数：	</span><br><span class="line">1）dag_id</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="3-api响应参数："><a href="#3-api响应参数：" class="headerlink" title="3. api响应参数："></a>3. api响应参数：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">airflow_cmd  - 字符串 - 在本地计算机上运行Airflow CLI命令</span><br><span class="line">arguments  -  Dict  - 包含您传入的参数的字典及其值</span><br><span class="line">post_arguments  -  Dict  - 包含您传入的帖子身体参数及其值的字典</span><br><span class="line">call_time  - 时间戳 - 服务器接收请求的时间</span><br><span class="line">output  -  String  - 调用CLI函数的文本输出</span><br><span class="line">response_time  - 时间戳 - 服务器发回响应的时间</span><br><span class="line">status  - 字符串 - 响应呼叫的状态。 （可能的值：OK，ERROR）</span><br><span class="line">warning  -  String  - 从API发回的警告消息</span><br><span class="line">http_response_code  - 整数 -  HTTP响应代码</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/airflow2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -647,7 +867,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
