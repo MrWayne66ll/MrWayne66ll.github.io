@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="centos7,kafka,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0. 概念0.1 消息系统 消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，而不用担心怎么去共享它。  1）点对点消息系统： 消息被保留在队列中，一个或多个消费者可以消耗队列中的消息，但是特定的消息只能由一个消费者消费，一旦消费掉了，消息就会从队列中消失。  2）发布-订阅 消息系统 消息被保留在主题中，与点对点的系统不同，消费者可以订阅一个或多个主题，并使用该主">
+<meta name="keywords" content="centos7,kafka">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kafka使用（一）- 概念理解">
+<meta property="og:url" content="http://yoursite.com/2018/12/16/kafka2/index.html">
+<meta property="og:site_name" content="枫川棂">
+<meta property="og:description" content="0. 概念0.1 消息系统 消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，而不用担心怎么去共享它。  1）点对点消息系统： 消息被保留在队列中，一个或多个消费者可以消耗队列中的消息，但是特定的消息只能由一个消费者消费，一旦消费掉了，消息就会从队列中消失。  2）发布-订阅 消息系统 消息被保留在主题中，与点对点的系统不同，消费者可以订阅一个或多个主题，并使用该主">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216201828907-782599435.png">
+<meta property="og:updated_time" content="2018-12-17T11:05:25.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kafka使用（一）- 概念理解">
+<meta name="twitter:description" content="0. 概念0.1 消息系统 消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，而不用担心怎么去共享它。  1）点对点消息系统： 消息被保留在队列中，一个或多个消费者可以消耗队列中的消息，但是特定的消息只能由一个消费者消费，一旦消费掉了，消息就会从队列中消失。  2）发布-订阅 消息系统 消息被保留在主题中，与点对点的系统不同，消费者可以订阅一个或多个主题，并使用该主">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216201828907-782599435.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/16/kafka2/">
+
+
+
+
+
+  <title>kafka使用（一）- 概念理解 | 枫川棂</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枫川棂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Come From FCL.PDD</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/kafka2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fengchuanling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枫川棂">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">kafka使用（一）- 概念理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-16T20:01:36+08:00">
+                2018-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/kafka/" itemprop="url" rel="index">
+                    <span itemprop="name">kafka</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="0-概念"><a href="#0-概念" class="headerlink" title="0. 概念"></a>0. 概念</h1><h2 id="0-1-消息系统"><a href="#0-1-消息系统" class="headerlink" title="0.1 消息系统"></a>0.1 消息系统</h2><blockquote>
+<p>消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，而不用担心怎么去共享它。</p>
+</blockquote>
+<h4 id="1）点对点消息系统："><a href="#1）点对点消息系统：" class="headerlink" title="1）点对点消息系统："></a>1）点对点消息系统：</h4><blockquote>
+<p>消息被保留在队列中，一个或多个消费者可以消耗队列中的消息，但是特定的消息只能由一个消费者消费，一旦消费掉了，消息就会从队列中消失。</p>
+</blockquote>
+<h4 id="2）发布-订阅-消息系统"><a href="#2）发布-订阅-消息系统" class="headerlink" title="2）发布-订阅 消息系统"></a>2）发布-订阅 消息系统</h4><blockquote>
+<p>消息被保留在主题中，与点对点的系统不同，消费者可以订阅一个或多个主题，并使用该主题中的所有消息</p>
+</blockquote>
+<h2 id="0-2-LinkedIn开源"><a href="#0-2-LinkedIn开源" class="headerlink" title="0.2 LinkedIn开源"></a>0.2 LinkedIn开源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1）Databus 分布式数据同步系统</span><br><span class="line">2）Cubert 高性能计算引擎</span><br><span class="line">3）ParSeq Java一部处理框架</span><br><span class="line">4）kafka 流处理平台</span><br></pre></td></tr></table></figure>
+<h1 id="1-kafka介绍"><a href="#1-kafka介绍" class="headerlink" title="1. kafka介绍"></a>1. kafka介绍</h1><h2 id="1-1-kafka工作流程"><a href="#1-1-kafka工作流程" class="headerlink" title="1.1 kafka工作流程"></a>1.1 kafka工作流程</h2><h3 id="1-1-1-发布-订阅工作流程"><a href="#1-1-1-发布-订阅工作流程" class="headerlink" title="1.1.1 发布-订阅工作流程"></a>1.1.1 发布-订阅工作流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1）生产者定期向主题发送消息</span><br><span class="line">2）kafka代理存储为该特定主题的分区中的所有消息，它确保消息在分区之间的平等共享</span><br><span class="line">3）消费者订阅特定的消息</span><br><span class="line">4）一旦消费者订阅了相应的主题，kafka将会向消费者提供主题的当前便宜，并且还将保存在zookeeper中</span><br><span class="line">5）消费者将定期请求kafka的新消息</span><br><span class="line">6）一旦kafka收到来自生产者的消息，它将这些消息转发给消费者</span><br><span class="line">7）消费者将接受这些消息并且进行处理</span><br><span class="line">8）一旦消息被处理了，消费者将向kafka代理发送确认</span><br><span class="line">9）一旦kafka收到确认，它将便宜改为新值，并在zookeeper中更新它</span><br><span class="line">10）以上流程将重复，直到消费者停止请求</span><br><span class="line">11）消费者可以随时退回/跳到所需要的主题的偏移量，并阅读所有后续的消息</span><br></pre></td></tr></table></figure>
+<h3 id="1-1-2-队列消息-用户组的工作流"><a href="#1-1-2-队列消息-用户组的工作流" class="headerlink" title="1.1.2 队列消息/用户组的工作流"></a>1.1.2 队列消息/用户组的工作流</h3><blockquote>
+<p>在队列消息传递系统而不是单个消费者中，具有相同的”组ID”的一组消费者将订阅主题。简单来说，订阅具有相同groupid的主题的消费者被认为是单个组，并且消息在他们之中共享。一下为工作流程“<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1）生产者以固定间隔向某个主题发送消息</span><br><span class="line">2）Kafka存储在为该特定主题配置的分区中的所有消息，类似于前面的方案</span><br><span class="line">3）单个消费者订阅特定主题，</span><br><span class="line">4）kafka以发布-订阅消息的方式同消费者交互，知道新的消费者以相同的组id订阅相同的主题topic</span><br><span class="line">5）一旦新的消费者到达，kafka将其操作切换为共享模式，并在两个消费者之间共享数据</span><br><span class="line">6）一旦消费者数量超过分区数量，新消费者将不会接收到任何进一步消息，知道现有的消费者取消订阅，出现这种情况是因为kafka中的每个消费者将被分配到至少一个分区，一旦所有分区都被分配给消费者之后，新的消费者必须等待</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="1-2-kafka-官方介绍"><a href="#1-2-kafka-官方介绍" class="headerlink" title="1.2 kafka 官方介绍"></a>1.2 kafka 官方介绍</h2><blockquote>
+<p>是一个分布式流处理平台</p>
+</blockquote>
+<h2 id="1-3-基本概念"><a href="#1-3-基本概念" class="headerlink" title="1.3 基本概念"></a>1.3 基本概念</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1）Producer：消息和数据的生产者，向kafka的一个topic发布消息的进程/代码/服务</span><br><span class="line">2）Consumer：消息和数据的消费者，订阅数据(Topic)并且处理其发布的消息的进程/代码/服务</span><br><span class="line">3）Consumer Group：一个group只有一个consumer能消费这个订阅的消息</span><br><span class="line">4）Broker：kafka集群中的每个kafka节点</span><br><span class="line">5）Topic：消息的类别，对数据进行区分、隔离</span><br><span class="line">6）Partition：一个Topic下的数据分散存储在多个Partition上，Partition是有序的</span><br><span class="line">  每个Topic被切分为多个partitions</span><br><span class="line">  消费者数目少于或等于Partition的数目</span><br><span class="line">  broker group中的每个brioker保存topic的一个或多个partition，同一个partition不会被多个几次保存在多个broker上</span><br><span class="line">  consumergroup中的仅有一个consumer读取topic的一个或多个partitions，并且是唯一的consumer</span><br><span class="line">7）Partition offset</span><br><span class="line">  每个分区消息具有称为 offset 的唯一序列标识</span><br><span class="line">8）Replication：一个partition可能有多个副本</span><br><span class="line">  当集群中有broker挂掉的情况下，系统可以主动使用replicas提供服务</span><br><span class="line">  系统默认设置每个topic的replication系数为1，可以创建topic时单独设置</span><br><span class="line">  replication的剧本单位是topic的partition</span><br><span class="line">  所有的读和写都是从leader进，followers只是为了做备份</span><br><span class="line">  followers必须能够即使复制leader的数据</span><br><span class="line">  增加容错性与可扩展性</span><br><span class="line">9）Replication Leader：负责该partition与consumer的交互</span><br><span class="line">10）ReplicaManager：负责管理当前的broker所有分区和副本的信息，处理kafkaController发起的一些请求，副本状态的切换、添加、读取消息等</span><br></pre></td></tr></table></figure>
+<h2 id="1-4-kafka消息结构"><a href="#1-4-kafka消息结构" class="headerlink" title="1.4 kafka消息结构"></a>1.4 kafka消息结构</h2><blockquote>
+<p>offset|length|crc32|magic|attributes|timestamp|key length|key|value length|value</p>
+</blockquote>
+<h2 id="1-5-api分类"><a href="#1-5-api分类" class="headerlink" title="1.5 api分类"></a>1.5 api分类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Producer Api</span><br><span class="line">Consumer Api</span><br><span class="line">Streams Api</span><br><span class="line">Connectors Api</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/1075630/201812/1075630-20181216201828907-782599435.png" alt=""></p>
+<h2 id="1-6-kafka特点"><a href="#1-6-kafka特点" class="headerlink" title="1.6 kafka特点"></a>1.6 kafka特点</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1）分布式：多分区，多副本，多订阅者，基于zookeeper调度（记录broker、topic、partition信息）</span><br><span class="line">2）高性能：高吞吐量、低延迟、高并发、时间复杂度为O(1)</span><br><span class="line">3）持久性与扩展性：数据可持久化、容错性、支持在线水平扩展、消息自动平衡（避免数据集中在某几台机器上导致频繁地访问某几台机器，产生一种热点的问题）</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/centos7/" rel="tag"># centos7</a>
+          
+            <a href="/tags/kafka/" rel="tag"># kafka</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/16/sql/" rel="next" title="sql 回顾（mysql）">
+                <i class="fa fa-chevron-left"></i> sql 回顾（mysql）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/17/kafka1/" rel="prev" title="kafka使用（二）- kafka安装和基本操作">
+                kafka使用（二）- kafka安装和基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">fengchuanling</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-概念"><span class="nav-number">1.</span> <span class="nav-text">0. 概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-1-消息系统"><span class="nav-number">1.1.</span> <span class="nav-text">0.1 消息系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）点对点消息系统："><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1）点对点消息系统：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）发布-订阅-消息系统"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2）发布-订阅 消息系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-2-LinkedIn开源"><span class="nav-number">1.2.</span> <span class="nav-text">0.2 LinkedIn开源</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#1-kafka介绍"><span class="nav-number">2.</span> <span class="nav-text">1. kafka介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-kafka工作流程"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 kafka工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-发布-订阅工作流程"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1.1 发布-订阅工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-队列消息-用户组的工作流"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.1.2 队列消息/用户组的工作流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-kafka-官方介绍"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 kafka 官方介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-基本概念"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-kafka消息结构"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 kafka消息结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-api分类"><span class="nav-number">2.5.</span> <span class="nav-text">1.5 api分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-kafka特点"><span class="nav-number">2.6.</span> <span class="nav-text">1.6 kafka特点</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fengchuanling</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
