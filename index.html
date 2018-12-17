@@ -229,6 +229,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/17/kafka1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fengchuanling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枫川棂">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/17/kafka1/" itemprop="url">kafka使用（二）- kafka安装和基本操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-17T14:58:17+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/kafka/" itemprop="url" rel="index">
+                    <span itemprop="name">kafka</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="2-kafka-在centos7上的安装"><a href="#2-kafka-在centos7上的安装" class="headerlink" title="2. kafka 在centos7上的安装"></a>2. kafka 在centos7上的安装</h1><h2 id="2-1-因为kafka是使用zookeeper保存相关的配置信息的，kafka以及zookeeper依赖于java运行环境，先进行java的JDK环境安装"><a href="#2-1-因为kafka是使用zookeeper保存相关的配置信息的，kafka以及zookeeper依赖于java运行环境，先进行java的JDK环境安装" class="headerlink" title="2.1 因为kafka是使用zookeeper保存相关的配置信息的，kafka以及zookeeper依赖于java运行环境，先进行java的JDK环境安装"></a>2.1 因为kafka是使用zookeeper保存相关的配置信息的，kafka以及zookeeper依赖于java运行环境，先进行java的JDK环境安装</h2><blockquote>
+<p>因为centos7上游jdk1.8环境，所以无需安装配置java</p>
+</blockquote>
+<h2 id="2-2-安装zookeeper"><a href="#2-2-安装zookeeper" class="headerlink" title="2.2 安装zookeeper"></a>2.2 安装zookeeper</h2><h4 id="1）官网下载最新版的zookeeper：http-zookeeper-apache-org-releases-html"><a href="#1）官网下载最新版的zookeeper：http-zookeeper-apache-org-releases-html" class="headerlink" title="1）官网下载最新版的zookeeper：http://zookeeper.apache.org/releases.html"></a>1）官网下载最新版的zookeeper：<a href="http://zookeeper.apache.org/releases.html" target="_blank" rel="noopener">http://zookeeper.apache.org/releases.html</a></h4><h4 id="2）解压文件，并在文件下创建data目录"><a href="#2）解压文件，并在文件下创建data目录" class="headerlink" title="2）解压文件，并在文件下创建data目录"></a>2）解压文件，并在文件下创建data目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf zookeeper-3.4.6.tar.gz</span><br><span class="line">cd zookeeper-3.4.6</span><br><span class="line">mkdir data</span><br></pre></td></tr></table></figure>
+<h4 id="3）自行创建zookeeper的启动配置文件：conf-zoo-cfg"><a href="#3）自行创建zookeeper的启动配置文件：conf-zoo-cfg" class="headerlink" title="3）自行创建zookeeper的启动配置文件：conf/zoo.cfg"></a>3）自行创建zookeeper的启动配置文件：conf/zoo.cfg</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">dataDir=/path/to/zookeeper/data</span><br><span class="line">clientPort=2181</span><br><span class="line">initLimit=5</span><br><span class="line">syncLimit=2</span><br></pre></td></tr></table></figure>
+<h4 id="4）zookeeper命令："><a href="#4）zookeeper命令：" class="headerlink" title="4）zookeeper命令："></a>4）zookeeper命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh start		// 启动zookeeper server</span><br><span class="line">bin/zkServer.sh stop		// 关闭</span><br><span class="line">in/zkCli.sh					// 打开cli</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-安装kafka"><a href="#2-3-安装kafka" class="headerlink" title="2.3 安装kafka"></a>2.3 安装kafka</h2><h4 id="1）官网下载kafka的安装包：https-www-apache-org-dyn-closer-cgi-path-kafka-0-9-0-0-kafka-2-11-0-9-0-0-tgz"><a href="#1）官网下载kafka的安装包：https-www-apache-org-dyn-closer-cgi-path-kafka-0-9-0-0-kafka-2-11-0-9-0-0-tgz" class="headerlink" title="1）官网下载kafka的安装包：https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.0/kafka_2.11-0.9.0.0.tgz"></a>1）官网下载kafka的安装包：<a href="https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.0/kafka_2.11-0.9.0.0.tgz" target="_blank" rel="noopener">https://www.apache.org/dyn/closer.cgi?path=/kafka/0.9.0.0/kafka_2.11-0.9.0.0.tgz</a></h4><h4 id="2）解压下载包："><a href="#2）解压下载包：" class="headerlink" title="2）解压下载包："></a>2）解压下载包：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf kafka_2.11.0.9.0.0 tar.gz</span><br><span class="line">cd kafka_2.11.0.9.0.0</span><br></pre></td></tr></table></figure>
+<h4 id="3）kafka命令："><a href="#3）kafka命令：" class="headerlink" title="3）kafka命令："></a>3）kafka命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh config/server.properties	// 启动服务	</span><br><span class="line">bin/kafka-server-stop.sh config/server.properties	// 停止服务</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-kafka基本操作"><a href="#2-4-kafka基本操作" class="headerlink" title="2.4 kafka基本操作"></a>2.4 kafka基本操作</h2><h4 id="1）topic-操作"><a href="#1）topic-操作" class="headerlink" title="1）topic 操作"></a>1）topic 操作</h4><h5 id="1-1）创建"><a href="#1-1）创建" class="headerlink" title="1.1）创建"></a>1.1）创建</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic topic-name</span><br></pre></td></tr></table></figure>
+<h5 id="1-2）修改"><a href="#1-2）修改" class="headerlink" title="1.2）修改"></a>1.2）修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh —zookeeper localhost:2181 --alter --topic topic_name --parti-tions count</span><br></pre></td></tr></table></figure>
+<h5 id="1-3）删除"><a href="#1-3）删除" class="headerlink" title="1.3）删除"></a>1.3）删除</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic_name</span><br></pre></td></tr></table></figure>
+<h4 id="2）获取kafka服务器中的topic列表"><a href="#2）获取kafka服务器中的topic列表" class="headerlink" title="2）获取kafka服务器中的topic列表"></a>2）获取kafka服务器中的topic列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
+<h4 id="3）启动kafka生产者以发送消息"><a href="#3）启动kafka生产者以发送消息" class="headerlink" title="3）启动kafka生产者以发送消息"></a>3）启动kafka生产者以发送消息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic-name</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>启动之后，生产者将等待来自stdin的输入，并发送到kafka集群。默认情况下，每个新行都作为消息发布，然后在”config/producer.properties”文件中指定默认生产者属性。</p>
+</blockquote>
+<h4 id="4）启动kafka消费者以获得消息"><a href="#4）启动kafka消费者以获得消息" class="headerlink" title="4）启动kafka消费者以获得消息"></a>4）启动kafka消费者以获得消息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic topic-name --from-beginning</span><br></pre></td></tr></table></figure>
+<h4 id="5）单节点多代理配置"><a href="#5）单节点多代理配置" class="headerlink" title="5）单节点多代理配置"></a>5）单节点多代理配置</h4><blockquote>
+<p>创建多个kafka broker<br><br>在config下新建多个 server.properties，修改下面的id、prot和logdir<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># The id of the broker. This must be set to a unique integer for each broker.</span><br><span class="line">broker.id=1</span><br><span class="line"># The port the socket server listens on</span><br><span class="line">port=9093</span><br><span class="line"># A comma seperated list of directories under which to store log files</span><br><span class="line">log.dirs=/tmp/kafka-logs-1</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>然后根据配置文件启动他们<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/sql/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1584,7 +1748,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1595,7 +1759,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1606,7 +1770,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
