@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-12-20T12:01:51.768Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2018-12-20T11:58:46.701Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/guestbook/index.html</loc>
+    
+    <lastmod>2018-12-19T12:04:58.981Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/19/product-order/</loc>
+    
+    <lastmod>2018-12-19T11:49:39.844Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/16/kafka2/</loc>
+    
+    <lastmod>2018-12-17T11:05:25.342Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/17/kafka1/</loc>
+    
+    <lastmod>2018-12-17T11:00:20.104Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/16/sql/</loc>
+    
+    <lastmod>2018-12-17T10:56:26.621Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/03/airflow1/</loc>
+    
+    <lastmod>2018-12-17T10:52:38.629Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/03/mariadb/</loc>
+    
+    <lastmod>2018-12-17T10:51:12.854Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/11/airflow4/</loc>
+    
+    <lastmod>2018-12-17T10:46:08.363Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/09/celery/</loc>
+    
+    <lastmod>2018-12-17T10:28:50.014Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/07/airflow3/</loc>
+    
+    <lastmod>2018-12-17T09:57:39.361Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/03/airflow2/</loc>
+    
+    <lastmod>2018-12-17T09:50:30.950Z</lastmod>
+    
+  </url>
+  
+</urlset>
