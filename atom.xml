@@ -5,9 +5,9 @@
   <subtitle>Come From FCL.PDD</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://mrwayne66ll.github.io/"/>
   <updated>2018-12-19T11:49:39.844Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://mrwayne66ll.github.io/</id>
   
   <author>
     <name>fengchuanling</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>工单模块分析</title>
-    <link href="http://yoursite.com/2018/12/19/product-order/"/>
-    <id>http://yoursite.com/2018/12/19/product-order/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/19/product-order/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/19/product-order/</id>
     <published>2018-12-19T11:48:02.000Z</published>
     <updated>2018-12-19T11:49:39.844Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="产品" scheme="http://yoursite.com/categories/%E4%BA%A7%E5%93%81/"/>
+      <category term="产品" scheme="https://mrwayne66ll.github.io/categories/%E4%BA%A7%E5%93%81/"/>
     
     
-      <category term="product" scheme="http://yoursite.com/tags/product/"/>
+      <category term="product" scheme="https://mrwayne66ll.github.io/tags/product/"/>
     
   </entry>
   
   <entry>
     <title>kafka使用（二）- kafka安装和基本操作</title>
-    <link href="http://yoursite.com/2018/12/17/kafka1/"/>
-    <id>http://yoursite.com/2018/12/17/kafka1/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/17/kafka1/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/17/kafka1/</id>
     <published>2018-12-17T06:58:17.000Z</published>
     <updated>2018-12-17T11:00:20.104Z</updated>
     
@@ -60,21 +60,21 @@
     
     </summary>
     
-      <category term="kafka" scheme="http://yoursite.com/categories/kafka/"/>
+      <category term="kafka" scheme="https://mrwayne66ll.github.io/categories/kafka/"/>
     
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="kafka" scheme="http://yoursite.com/tags/kafka/"/>
+      <category term="kafka" scheme="https://mrwayne66ll.github.io/tags/kafka/"/>
     
-      <category term="zookeeper" scheme="http://yoursite.com/tags/zookeeper/"/>
+      <category term="zookeeper" scheme="https://mrwayne66ll.github.io/tags/zookeeper/"/>
     
   </entry>
   
   <entry>
     <title>kafka使用（一）- 概念理解</title>
-    <link href="http://yoursite.com/2018/12/16/kafka2/"/>
-    <id>http://yoursite.com/2018/12/16/kafka2/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/16/kafka2/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/16/kafka2/</id>
     <published>2018-12-16T12:01:36.000Z</published>
     <updated>2018-12-17T11:05:25.342Z</updated>
     
@@ -89,19 +89,19 @@
     
     </summary>
     
-      <category term="kafka" scheme="http://yoursite.com/categories/kafka/"/>
+      <category term="kafka" scheme="https://mrwayne66ll.github.io/categories/kafka/"/>
     
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="kafka" scheme="http://yoursite.com/tags/kafka/"/>
+      <category term="kafka" scheme="https://mrwayne66ll.github.io/tags/kafka/"/>
     
   </entry>
   
   <entry>
     <title>sql 回顾（mysql）</title>
-    <link href="http://yoursite.com/2018/12/16/sql/"/>
-    <id>http://yoursite.com/2018/12/16/sql/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/16/sql/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/16/sql/</id>
     <published>2018-12-16T10:54:28.000Z</published>
     <updated>2018-12-17T10:56:26.621Z</updated>
     
@@ -117,19 +117,19 @@
     
     </summary>
     
-      <category term="sql" scheme="http://yoursite.com/categories/sql/"/>
+      <category term="sql" scheme="https://mrwayne66ll.github.io/categories/sql/"/>
     
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+      <category term="mysql" scheme="https://mrwayne66ll.github.io/tags/mysql/"/>
     
-      <category term="sql" scheme="http://yoursite.com/tags/sql/"/>
+      <category term="sql" scheme="https://mrwayne66ll.github.io/tags/sql/"/>
     
   </entry>
   
   <entry>
     <title>airflow 文档学习(二) - 概念</title>
-    <link href="http://yoursite.com/2018/12/11/airflow4/"/>
-    <id>http://yoursite.com/2018/12/11/airflow4/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/11/airflow4/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/11/airflow4/</id>
     <published>2018-12-11T10:31:51.000Z</published>
     <updated>2018-12-17T10:46:08.363Z</updated>
     
@@ -144,21 +144,21 @@
     
     </summary>
     
-      <category term="python-框架" scheme="http://yoursite.com/categories/python-%E6%A1%86%E6%9E%B6/"/>
+      <category term="python-框架" scheme="https://mrwayne66ll.github.io/categories/python-%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="airflow" scheme="http://yoursite.com/tags/airflow/"/>
+      <category term="airflow" scheme="https://mrwayne66ll.github.io/tags/airflow/"/>
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://mrwayne66ll.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>celery 安装及使用</title>
-    <link href="http://yoursite.com/2018/12/09/celery/"/>
-    <id>http://yoursite.com/2018/12/09/celery/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/09/celery/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/09/celery/</id>
     <published>2018-12-09T10:25:50.000Z</published>
     <updated>2018-12-17T10:28:50.014Z</updated>
     
@@ -173,21 +173,21 @@
     
     </summary>
     
-      <category term="python-框架" scheme="http://yoursite.com/categories/python-%E6%A1%86%E6%9E%B6/"/>
+      <category term="python-框架" scheme="https://mrwayne66ll.github.io/categories/python-%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://mrwayne66ll.github.io/tags/python/"/>
     
-      <category term="celery" scheme="http://yoursite.com/tags/celery/"/>
+      <category term="celery" scheme="https://mrwayne66ll.github.io/tags/celery/"/>
     
   </entry>
   
   <entry>
     <title>airflow-api 插件的安装与使用介绍</title>
-    <link href="http://yoursite.com/2018/12/07/airflow3/"/>
-    <id>http://yoursite.com/2018/12/07/airflow3/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/07/airflow3/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/07/airflow3/</id>
     <published>2018-12-07T09:54:29.000Z</published>
     <updated>2018-12-17T09:57:39.361Z</updated>
     
@@ -202,21 +202,21 @@
     
     </summary>
     
-      <category term="python-框架" scheme="http://yoursite.com/categories/python-%E6%A1%86%E6%9E%B6/"/>
+      <category term="python-框架" scheme="https://mrwayne66ll.github.io/categories/python-%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="airflow" scheme="http://yoursite.com/tags/airflow/"/>
+      <category term="airflow" scheme="https://mrwayne66ll.github.io/tags/airflow/"/>
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://mrwayne66ll.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>centos7 更新mariadb</title>
-    <link href="http://yoursite.com/2018/12/03/mariadb/"/>
-    <id>http://yoursite.com/2018/12/03/mariadb/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/03/mariadb/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/03/mariadb/</id>
     <published>2018-12-03T10:49:43.000Z</published>
     <updated>2018-12-17T10:51:12.854Z</updated>
     
@@ -231,21 +231,21 @@
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+      <category term="linux" scheme="https://mrwayne66ll.github.io/categories/linux/"/>
     
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+      <category term="mysql" scheme="https://mrwayne66ll.github.io/tags/mysql/"/>
     
-      <category term="mariadb" scheme="http://yoursite.com/tags/mariadb/"/>
+      <category term="mariadb" scheme="https://mrwayne66ll.github.io/tags/mariadb/"/>
     
   </entry>
   
   <entry>
     <title>airflow 文档学习(一) 基本Operator</title>
-    <link href="http://yoursite.com/2018/12/03/airflow2/"/>
-    <id>http://yoursite.com/2018/12/03/airflow2/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/03/airflow2/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/03/airflow2/</id>
     <published>2018-12-03T09:47:06.000Z</published>
     <updated>2018-12-17T09:50:30.950Z</updated>
     
@@ -261,25 +261,25 @@
     
     </summary>
     
-      <category term="python-框架" scheme="http://yoursite.com/categories/python-%E6%A1%86%E6%9E%B6/"/>
+      <category term="python-框架" scheme="https://mrwayne66ll.github.io/categories/python-%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="airflow" scheme="http://yoursite.com/tags/airflow/"/>
+      <category term="airflow" scheme="https://mrwayne66ll.github.io/tags/airflow/"/>
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://mrwayne66ll.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>centos7 超完整安装airflow</title>
-    <link href="http://yoursite.com/2018/12/03/airflow1/"/>
-    <id>http://yoursite.com/2018/12/03/airflow1/</id>
+    <link href="https://mrwayne66ll.github.io/2018/12/03/airflow1/"/>
+    <id>https://mrwayne66ll.github.io/2018/12/03/airflow1/</id>
     <published>2018-12-03T09:10:42.000Z</published>
     <updated>2018-12-17T10:52:38.629Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1-airflow完整安装流程"><a href="#1-airflow完整安装流程" class="headerlink" title="1. airflow完整安装流程"></a>1. airflow完整安装流程</h1><h2 id="1-1-airflow-基础安装"><a href="#1-1-airflow-基础安装" class="headerlink" title="1.1 airflow 基础安装"></a>1.1 airflow 基础安装</h2><h5 id="1）默认自带python2环境，自行安装pip"><a href="#1）默认自带python2环境，自行安装pip" class="headerlink" title="1）默认自带python2环境，自行安装pip"></a>1）默认自带python2环境，自行安装pip</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure><h5 id="2）进行pip的更新，否则很多安装会报错"><a href="#2）进行pip的更新，否则很多安装会报错" class="headerlink" title="2）进行pip的更新，否则很多安装会报错"></a>2）进行pip的更新，否则很多安装会报错</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure><h5 id="3）安装开发库"><a href="#3）安装开发库" class="headerlink" title="3）安装开发库"></a>3）安装开发库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install python-devel</span><br><span class="line">yum install libevent-devel</span><br><span class="line">yum install mysql-devel</span><br></pre></td></tr></table></figure><h5 id="4）安装centos7下的mysql"><a href="#4）安装centos7下的mysql" class="headerlink" title="4）安装centos7下的mysql"></a>4）安装centos7下的mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mariadb mariadb-server</span><br><span class="line">启动并设置开机启动</span><br><span class="line">systemctl start mariadb</span><br><span class="line">systemctl enable mariadb</span><br></pre></td></tr></table></figure><h5 id="5）初始化配置mysql"><a href="#5）初始化配置mysql" class="headerlink" title="5）初始化配置mysql"></a>5）初始化配置mysql</h5><blockquote><p>注：可以设定允许root远程登录，并且删除test和None用户，这样才能使得mysql允许远程登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></p></blockquote><h5 id="6）安装airflow"><a href="#6）安装airflow" class="headerlink" title="6）安装airflow"></a>6）安装airflow</h5><blockquote><p>在此之前需要设定临时环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SLUGIFY_USES_TEXT_UNIDECODE=yes</span><br><span class="line">pip install apache-airflow</span><br></pre></td></tr></table></figure></p></blockquote><h5 id="7）初始化airflow并启动"><a href="#7）初始化airflow并启动" class="headerlink" title="7）初始化airflow并启动"></a>7）初始化airflow并启动</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow initdb</span><br><span class="line">airflow webserver -p 8080</span><br></pre></td></tr></table></figure><h5 id="8）防止密码明文存储"><a href="#8）防止密码明文存储" class="headerlink" title="8）防止密码明文存储"></a>8）防止密码明文存储</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cryptography</span><br></pre></td></tr></table></figure><h2 id="1-2-airflow-mysql安装"><a href="#1-2-airflow-mysql安装" class="headerlink" title="1.2 airflow mysql安装"></a>1.2 airflow mysql安装</h2><h5 id="1）安装airflow-mysql"><a href="#1）安装airflow-mysql" class="headerlink" title="1）安装airflow-mysql"></a>1）安装airflow-mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install apache-airflow[mysql]</span><br></pre></td></tr></table></figure><h5 id="2）创建airflow用户-创建airflow数据库并给出所有权限给次用户"><a href="#2）创建airflow用户-创建airflow数据库并给出所有权限给次用户" class="headerlink" title="2）创建airflow用户,创建airflow数据库并给出所有权限给次用户"></a>2）创建airflow用户,创建airflow数据库并给出所有权限给次用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create database airflow;</span><br><span class="line">create user &apos;testairflow&apos;@&apos;%&apos; identified by &apos;123123&apos;;</span><br><span class="line">GRANT all privileges on airflow.* TO &apos;testairflow&apos;@&apos;%&apos;  IDENTIFIED BY &apos;123123&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure><h5 id="3）修改airflow配置文件，指向数据库mysql"><a href="#3）修改airflow配置文件，指向数据库mysql" class="headerlink" title="3）修改airflow配置文件，指向数据库mysql"></a>3）修改airflow配置文件，指向数据库mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/airflow/airflow.cfg 文件修改：sql_alchemy_conn = mysql://ct:152108@localhost/airflow</span><br></pre></td></tr></table></figure><h5 id="4）进行mariadb更新，从5-5-60升级为10-2-19，然后修改配置文件添加参数-之后初始化数据库"><a href="#4）进行mariadb更新，从5-5-60升级为10-2-19，然后修改配置文件添加参数-之后初始化数据库" class="headerlink" title="4）进行mariadb更新，从5.5.60升级为10.2.19，然后修改配置文件添加参数,之后初始化数据库"></a>4）<a href="https://mrwayne66ll.github.io/2018/12/03/mariadb/" target="_blank" rel="noopener">进行mariadb更新，从5.5.60升级为10.2.19，</a>然后修改配置文件添加参数,之后初始化数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br><span class="line">explicit_defaults_for_timestamp=1   // 添加此行</span><br><span class="line">systemctl restart mariadb</span><br><span class="line">airflow initdb</span><br></pre></td></tr></table></figure><h2 id="1-3-airflow-安装配置celery-rabbitmq（官方推荐使用rabblitmq）"><a href="#1-3-airflow-安装配置celery-rabbitmq（官方推荐使用rabblitmq）" class="headerlink" title="1.3 airflow 安装配置celery+rabbitmq（官方推荐使用rabblitmq）"></a>1.3 airflow 安装配置celery+rabbitmq（官方推荐使用rabblitmq）</h2><h3 id="1-3-1-安装celery和rabbitmq组件"><a href="#1-3-1-安装celery和rabbitmq组件" class="headerlink" title="1.3.1 安装celery和rabbitmq组件"></a>1.3.1 安装celery和rabbitmq组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install airflow[celery] </span><br><span class="line">pip install airflow[rabbitmq]</span><br></pre></td></tr></table></figure><h3 id="1-3-2-系统安装rabbit"><a href="#1-3-2-系统安装rabbit" class="headerlink" title="1.3.2 系统安装rabbit"></a>1.3.2 系统安装rabbit</h3><h5 id="1）安装-erlang"><a href="#1）安装-erlang" class="headerlink" title="1）安装 erlang"></a>1）安装 erlang</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install erlang</span><br></pre></td></tr></table></figure><h5 id="2）安装-rabbitmq"><a href="#2）安装-rabbitmq" class="headerlink" title="2）安装 rabbitmq"></a>2）安装 rabbitmq</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm</span><br><span class="line">rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc</span><br><span class="line">yum install rabbitmq-server-3.6.15-1.el6.noarch.rpm</span><br></pre></td></tr></table></figure><h5 id="3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）"><a href="#3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）" class="headerlink" title="3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）"></a>3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl add_user root rabbitmq</span><br><span class="line">rabbitmqctl add_vhost airflow-rabbitmq</span><br><span class="line">rabbitmqctl set_user_tags root airflow-rabbitmq</span><br><span class="line">rabbitmqctl set_permissions -p airflow-rabbitmq root &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure><h3 id="1-3-3-修改airflow配置文件"><a href="#1-3-3-修改airflow配置文件" class="headerlink" title="1.3.3 修改airflow配置文件"></a>1.3.3 修改airflow配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">executor = CeleryExecutor</span><br><span class="line">broker_url = amqp://root:123123@localhost:5672/airflow-rabbitmq</span><br><span class="line">result_backend = amqp://root:123123@localhost:5672/airflow-rabbitmq</span><br></pre></td></tr></table></figure><h3 id="1-4-airflow-安装配置celery-redis"><a href="#1-4-airflow-安装配置celery-redis" class="headerlink" title="1.4 airflow 安装配置celery+redis"></a>1.4 airflow 安装配置celery+redis</h3><h3 id="1-3-1-安装redis"><a href="#1-3-1-安装redis" class="headerlink" title="1.3.1 安装redis"></a>1.3.1 安装redis</h3><h5 id="1）系统安装redis"><a href="#1）系统安装redis" class="headerlink" title="1）系统安装redis"></a>1）系统安装redis</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install redis</span><br></pre></td></tr></table></figure><h5 id="2）修改配置文件"><a href="#2）修改配置文件" class="headerlink" title="2）修改配置文件"></a>2）修改配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis.conf</span><br><span class="line">#bind 127.0.0.1 // 注释掉，使redis允许远程访问</span><br><span class="line">requirepass 密码// 修改这行，redis登录密码</span><br></pre></td></tr></table></figure><h5 id="3）开启redis服务"><a href="#3）开启redis服务" class="headerlink" title="3）开启redis服务"></a>3）开启redis服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start redis</span><br></pre></td></tr></table></figure><h5 id="4）python下安装redis库"><a href="#4）python下安装redis库" class="headerlink" title="4）python下安装redis库"></a>4）python下安装redis库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install redis</span><br></pre></td></tr></table></figure><h3 id="1-3-2-安装celery"><a href="#1-3-2-安装celery" class="headerlink" title="1.3.2 安装celery"></a>1.3.2 安装celery</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br></pre></td></tr></table></figure><h3 id="1-3-3-配置airflow-cfg"><a href="#1-3-3-配置airflow-cfg" class="headerlink" title="1.3.3 配置airflow.cfg"></a>1.3.3 配置airflow.cfg</h3><p>修改内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">executor = CeleryExecutor</span><br><span class="line">broker_url = redis://127.0.0.1:6379/0</span><br><span class="line">result_backend = redis://127.0.0.1:6379/0</span><br></pre></td></tr></table></figure></p><h3 id="1-3-4-airflow常用命令"><a href="#1-3-4-airflow常用命令" class="headerlink" title="1.3.4 airflow常用命令"></a>1.3.4 airflow常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow webserver -p 8080// 打开web服务</span><br><span class="line">airflow scheduler //打开调度器，必须启动，不然DAG在使用celeryExecutor和LocalExcutor没法run起来</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">airflow list_dags//查看已有的dag列表</span><br><span class="line">airflow list_tasks tutorial        //查看某个dag下的任务</span><br><span class="line">airflow list_tasks tutorial --tree //树形结构查看</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow test dag_name task_name test_time</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow run dagid [time] run task instance</span><br><span class="line">airflow backfill [dagid] -s[startTime] -e [endTime] run a backfill over 2 days</span><br></pre></td></tr></table></figure><h1 id="3-airflow-架构"><a href="#3-airflow-架构" class="headerlink" title="3. airflow 架构"></a>3. airflow 架构</h1><h2 id="3-1核心概念："><a href="#3-1核心概念：" class="headerlink" title="3.1核心概念："></a>3.1核心概念：</h2><blockquote><p>DAG有向无环图<br><br>一个DAG由多个task组成</p></blockquote><h2 id="3-2-包含组件："><a href="#3-2-包含组件：" class="headerlink" title="3.2 包含组件："></a>3.2 包含组件：</h2><h5 id="1）一个元数据库-mysql"><a href="#1）一个元数据库-mysql" class="headerlink" title="1）一个元数据库(mysql)"></a>1）一个元数据库(mysql)</h5><h5 id="2）一组airflow工作节点"><a href="#2）一组airflow工作节点" class="headerlink" title="2）一组airflow工作节点"></a>2）一组airflow工作节点</h5><h5 id="3）一个调节器-redis或RabbitMQ"><a href="#3）一个调节器-redis或RabbitMQ" class="headerlink" title="3）一个调节器(redis或RabbitMQ)"></a>3）一个调节器(redis或RabbitMQ)</h5><h5 id="4）一个airflow-web服务器"><a href="#4）一个airflow-web服务器" class="headerlink" title="4）一个airflow web服务器"></a>4）一个airflow web服务器</h5><h2 id="3-3-工作流依赖种类："><a href="#3-3-工作流依赖种类：" class="headerlink" title="3.3 工作流依赖种类："></a>3.3 工作流依赖种类：</h2><h5 id="1）时间依赖：定时触发任务"><a href="#1）时间依赖：定时触发任务" class="headerlink" title="1）时间依赖：定时触发任务"></a>1）时间依赖：定时触发任务</h5><p><code>完整支持crontab表达式，还支持python的datatime</code></p><h5 id="2）任务间依赖：任务A需要在任务B完成的基础上触发"><a href="#2）任务间依赖：任务A需要在任务B完成的基础上触发" class="headerlink" title="2）任务间依赖：任务A需要在任务B完成的基础上触发"></a>2）任务间依赖：任务A需要在任务B完成的基础上触发</h5><blockquote><h5 id="3）权限依赖：用户权限管理"><a href="#3）权限依赖：用户权限管理" class="headerlink" title="3）权限依赖：用户权限管理"></a>3）权限依赖：用户权限管理</h5><h5 id="4）机器依赖：任务的执行只能在某些指定机器上执行"><a href="#4）机器依赖：任务的执行只能在某些指定机器上执行" class="headerlink" title="4）机器依赖：任务的执行只能在某些指定机器上执行"></a>4）机器依赖：任务的执行只能在某些指定机器上执行</h5><p><code>在celeryExcuter可以使用不同的用户启动worker，不同的worker监听不同的queue，解决用户权限依赖问题；worker也可以启动在不同的机器上，解决机器依赖问题</code></p><h5 id="5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据"><a href="#5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据" class="headerlink" title="5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据"></a>5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据</h5><p><code>有一个hook机制，作用时建立一个与外部数据系统的连接，比如mysql、hdfs、本地文件系统，通过拓展的hook</code></p></blockquote><h5 id="6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制"><a href="#6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制" class="headerlink" title="6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制"></a>6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制</h5><blockquote><p><code>可以为任意的task指定一个抽象的pool，每个pool指定一个slot数，每启动一个task任务就占用一个slot数，当slot数占满之后就进入等待状态</code></p></blockquote><h1 id="3-4-基本使用过程"><a href="#3-4-基本使用过程" class="headerlink" title="3.4 基本使用过程"></a>3.4 基本使用过程</h1><h5 id="1）根据实际需要，使用不同的Operator"><a href="#1）根据实际需要，使用不同的Operator" class="headerlink" title="1）根据实际需要，使用不同的Operator"></a>1）根据实际需要，使用不同的Operator</h5><h5 id="2）传入具体的参数，定义一系列的tasks-operator是task的抽象类"><a href="#2）传入具体的参数，定义一系列的tasks-operator是task的抽象类" class="headerlink" title="2）传入具体的参数，定义一系列的tasks    // operator是task的抽象类"></a>2）传入具体的参数，定义一系列的tasks    // operator是task的抽象类</h5><h5 id="3）定义tasks之间的关系，形成一个DAG"><a href="#3）定义tasks之间的关系，形成一个DAG" class="headerlink" title="3）定义tasks之间的关系，形成一个DAG"></a>3）定义tasks之间的关系，形成一个DAG</h5><h5 id="4）调度DAG运行，每个task会形成一个instance"><a href="#4）调度DAG运行，每个task会形成一个instance" class="headerlink" title="4）调度DAG运行，每个task会形成一个instance"></a>4）调度DAG运行，每个task会形成一个instance</h5><h5 id="5）使用命令或者web-ui进行查看管理"><a href="#5）使用命令或者web-ui进行查看管理" class="headerlink" title="5）使用命令或者web ui进行查看管理"></a>5）使用命令或者web ui进行查看管理</h5>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-airflow完整安装流程"><a href="#1-airflow完整安装流程" class="headerlink" title="1. airflow完整安装流程"></a>1. airflow完整安装流程</h1><h2 id="1-1-airflow-基础安装"><a href="#1-1-airflow-基础安装" class="headerlink" title="1.1 airflow 基础安装"></a>1.1 airflow 基础安装</h2><h5 id="1）默认自带python2环境，自行安装pip"><a href="#1）默认自带python2环境，自行安装pip" class="headerlink" title="1）默认自带python2环境，自行安装pip"></a>1）默认自带python2环境，自行安装pip</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure><h5 id="2）进行pip的更新，否则很多安装会报错"><a href="#2）进行pip的更新，否则很多安装会报错" class="headerlink" title="2）进行pip的更新，否则很多安装会报错"></a>2）进行pip的更新，否则很多安装会报错</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br><span class="line">pip install --upgrade setuptools</span><br></pre></td></tr></table></figure><h5 id="3）安装开发库"><a href="#3）安装开发库" class="headerlink" title="3）安装开发库"></a>3）安装开发库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install python-devel</span><br><span class="line">yum install libevent-devel</span><br><span class="line">yum install mysql-devel</span><br></pre></td></tr></table></figure><h5 id="4）安装centos7下的mysql"><a href="#4）安装centos7下的mysql" class="headerlink" title="4）安装centos7下的mysql"></a>4）安装centos7下的mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mariadb mariadb-server</span><br><span class="line">启动并设置开机启动</span><br><span class="line">systemctl start mariadb</span><br><span class="line">systemctl enable mariadb</span><br></pre></td></tr></table></figure><h5 id="5）初始化配置mysql"><a href="#5）初始化配置mysql" class="headerlink" title="5）初始化配置mysql"></a>5）初始化配置mysql</h5><blockquote><p>注：可以设定允许root远程登录，并且删除test和None用户，这样才能使得mysql允许远程登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></p></blockquote><h5 id="6）安装airflow"><a href="#6）安装airflow" class="headerlink" title="6）安装airflow"></a>6）安装airflow</h5><blockquote><p>在此之前需要设定临时环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SLUGIFY_USES_TEXT_UNIDECODE=yes</span><br><span class="line">pip install apache-airflow</span><br></pre></td></tr></table></figure></p></blockquote><h5 id="7）初始化airflow并启动"><a href="#7）初始化airflow并启动" class="headerlink" title="7）初始化airflow并启动"></a>7）初始化airflow并启动</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow initdb</span><br><span class="line">airflow webserver -p 8080</span><br></pre></td></tr></table></figure><h5 id="8）防止密码明文存储"><a href="#8）防止密码明文存储" class="headerlink" title="8）防止密码明文存储"></a>8）防止密码明文存储</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cryptography</span><br></pre></td></tr></table></figure><h2 id="1-2-airflow-mysql安装"><a href="#1-2-airflow-mysql安装" class="headerlink" title="1.2 airflow mysql安装"></a>1.2 airflow mysql安装</h2><h5 id="1）安装airflow-mysql"><a href="#1）安装airflow-mysql" class="headerlink" title="1）安装airflow-mysql"></a>1）安装airflow-mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install apache-airflow[mysql]</span><br></pre></td></tr></table></figure><h5 id="2）创建airflow用户-创建airflow数据库并给出所有权限给次用户"><a href="#2）创建airflow用户-创建airflow数据库并给出所有权限给次用户" class="headerlink" title="2）创建airflow用户,创建airflow数据库并给出所有权限给次用户"></a>2）创建airflow用户,创建airflow数据库并给出所有权限给次用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create database airflow;</span><br><span class="line">create user &apos;testairflow&apos;@&apos;%&apos; identified by &apos;123123&apos;;</span><br><span class="line">GRANT all privileges on airflow.* TO &apos;testairflow&apos;@&apos;%&apos;  IDENTIFIED BY &apos;123123&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure><h5 id="3）修改airflow配置文件，指向数据库mysql"><a href="#3）修改airflow配置文件，指向数据库mysql" class="headerlink" title="3）修改airflow配置文件，指向数据库mysql"></a>3）修改airflow配置文件，指向数据库mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/airflow/airflow.cfg 文件修改：sql_alchemy_conn = mysql://ct:152108@localhost/airflow</span><br></pre></td></tr></table></figure><h5 id="4）进行mariadb更新，从5-5-60升级为10-2-19，然后修改配置文件添加参数-之后初始化数据库"><a href="#4）进行mariadb更新，从5-5-60升级为10-2-19，然后修改配置文件添加参数-之后初始化数据库" class="headerlink" title="4）进行mariadb更新，从5.5.60升级为10.2.19，然后修改配置文件添加参数,之后初始化数据库"></a>4）<a href="https://mrwayne66ll.github.io/2018/12/03/mariadb/">进行mariadb更新，从5.5.60升级为10.2.19，</a>然后修改配置文件添加参数,之后初始化数据库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br><span class="line">explicit_defaults_for_timestamp=1   // 添加此行</span><br><span class="line">systemctl restart mariadb</span><br><span class="line">airflow initdb</span><br></pre></td></tr></table></figure><h2 id="1-3-airflow-安装配置celery-rabbitmq（官方推荐使用rabblitmq）"><a href="#1-3-airflow-安装配置celery-rabbitmq（官方推荐使用rabblitmq）" class="headerlink" title="1.3 airflow 安装配置celery+rabbitmq（官方推荐使用rabblitmq）"></a>1.3 airflow 安装配置celery+rabbitmq（官方推荐使用rabblitmq）</h2><h3 id="1-3-1-安装celery和rabbitmq组件"><a href="#1-3-1-安装celery和rabbitmq组件" class="headerlink" title="1.3.1 安装celery和rabbitmq组件"></a>1.3.1 安装celery和rabbitmq组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install airflow[celery] </span><br><span class="line">pip install airflow[rabbitmq]</span><br></pre></td></tr></table></figure><h3 id="1-3-2-系统安装rabbit"><a href="#1-3-2-系统安装rabbit" class="headerlink" title="1.3.2 系统安装rabbit"></a>1.3.2 系统安装rabbit</h3><h5 id="1）安装-erlang"><a href="#1）安装-erlang" class="headerlink" title="1）安装 erlang"></a>1）安装 erlang</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install erlang</span><br></pre></td></tr></table></figure><h5 id="2）安装-rabbitmq"><a href="#2）安装-rabbitmq" class="headerlink" title="2）安装 rabbitmq"></a>2）安装 rabbitmq</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm</span><br><span class="line">rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc</span><br><span class="line">yum install rabbitmq-server-3.6.15-1.el6.noarch.rpm</span><br></pre></td></tr></table></figure><h5 id="3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）"><a href="#3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）" class="headerlink" title="3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）"></a>3）配置rabbitmq（设置用户名root，密码123123，创建虚拟主机airflow-rabbitmq）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl add_user root rabbitmq</span><br><span class="line">rabbitmqctl add_vhost airflow-rabbitmq</span><br><span class="line">rabbitmqctl set_user_tags root airflow-rabbitmq</span><br><span class="line">rabbitmqctl set_permissions -p airflow-rabbitmq root &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure><h3 id="1-3-3-修改airflow配置文件"><a href="#1-3-3-修改airflow配置文件" class="headerlink" title="1.3.3 修改airflow配置文件"></a>1.3.3 修改airflow配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">executor = CeleryExecutor</span><br><span class="line">broker_url = amqp://root:123123@localhost:5672/airflow-rabbitmq</span><br><span class="line">result_backend = amqp://root:123123@localhost:5672/airflow-rabbitmq</span><br></pre></td></tr></table></figure><h3 id="1-4-airflow-安装配置celery-redis"><a href="#1-4-airflow-安装配置celery-redis" class="headerlink" title="1.4 airflow 安装配置celery+redis"></a>1.4 airflow 安装配置celery+redis</h3><h3 id="1-3-1-安装redis"><a href="#1-3-1-安装redis" class="headerlink" title="1.3.1 安装redis"></a>1.3.1 安装redis</h3><h5 id="1）系统安装redis"><a href="#1）系统安装redis" class="headerlink" title="1）系统安装redis"></a>1）系统安装redis</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install redis</span><br></pre></td></tr></table></figure><h5 id="2）修改配置文件"><a href="#2）修改配置文件" class="headerlink" title="2）修改配置文件"></a>2）修改配置文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis.conf</span><br><span class="line">#bind 127.0.0.1 // 注释掉，使redis允许远程访问</span><br><span class="line">requirepass 密码// 修改这行，redis登录密码</span><br></pre></td></tr></table></figure><h5 id="3）开启redis服务"><a href="#3）开启redis服务" class="headerlink" title="3）开启redis服务"></a>3）开启redis服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start redis</span><br></pre></td></tr></table></figure><h5 id="4）python下安装redis库"><a href="#4）python下安装redis库" class="headerlink" title="4）python下安装redis库"></a>4）python下安装redis库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install redis</span><br></pre></td></tr></table></figure><h3 id="1-3-2-安装celery"><a href="#1-3-2-安装celery" class="headerlink" title="1.3.2 安装celery"></a>1.3.2 安装celery</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br></pre></td></tr></table></figure><h3 id="1-3-3-配置airflow-cfg"><a href="#1-3-3-配置airflow-cfg" class="headerlink" title="1.3.3 配置airflow.cfg"></a>1.3.3 配置airflow.cfg</h3><p>修改内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">executor = CeleryExecutor</span><br><span class="line">broker_url = redis://127.0.0.1:6379/0</span><br><span class="line">result_backend = redis://127.0.0.1:6379/0</span><br></pre></td></tr></table></figure></p><h3 id="1-3-4-airflow常用命令"><a href="#1-3-4-airflow常用命令" class="headerlink" title="1.3.4 airflow常用命令"></a>1.3.4 airflow常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow webserver -p 8080// 打开web服务</span><br><span class="line">airflow scheduler //打开调度器，必须启动，不然DAG在使用celeryExecutor和LocalExcutor没法run起来</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">airflow list_dags//查看已有的dag列表</span><br><span class="line">airflow list_tasks tutorial        //查看某个dag下的任务</span><br><span class="line">airflow list_tasks tutorial --tree //树形结构查看</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow test dag_name task_name test_time</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">airflow run dagid [time] run task instance</span><br><span class="line">airflow backfill [dagid] -s[startTime] -e [endTime] run a backfill over 2 days</span><br></pre></td></tr></table></figure><h1 id="3-airflow-架构"><a href="#3-airflow-架构" class="headerlink" title="3. airflow 架构"></a>3. airflow 架构</h1><h2 id="3-1核心概念："><a href="#3-1核心概念：" class="headerlink" title="3.1核心概念："></a>3.1核心概念：</h2><blockquote><p>DAG有向无环图<br><br>一个DAG由多个task组成</p></blockquote><h2 id="3-2-包含组件："><a href="#3-2-包含组件：" class="headerlink" title="3.2 包含组件："></a>3.2 包含组件：</h2><h5 id="1）一个元数据库-mysql"><a href="#1）一个元数据库-mysql" class="headerlink" title="1）一个元数据库(mysql)"></a>1）一个元数据库(mysql)</h5><h5 id="2）一组airflow工作节点"><a href="#2）一组airflow工作节点" class="headerlink" title="2）一组airflow工作节点"></a>2）一组airflow工作节点</h5><h5 id="3）一个调节器-redis或RabbitMQ"><a href="#3）一个调节器-redis或RabbitMQ" class="headerlink" title="3）一个调节器(redis或RabbitMQ)"></a>3）一个调节器(redis或RabbitMQ)</h5><h5 id="4）一个airflow-web服务器"><a href="#4）一个airflow-web服务器" class="headerlink" title="4）一个airflow web服务器"></a>4）一个airflow web服务器</h5><h2 id="3-3-工作流依赖种类："><a href="#3-3-工作流依赖种类：" class="headerlink" title="3.3 工作流依赖种类："></a>3.3 工作流依赖种类：</h2><h5 id="1）时间依赖：定时触发任务"><a href="#1）时间依赖：定时触发任务" class="headerlink" title="1）时间依赖：定时触发任务"></a>1）时间依赖：定时触发任务</h5><p><code>完整支持crontab表达式，还支持python的datatime</code></p><h5 id="2）任务间依赖：任务A需要在任务B完成的基础上触发"><a href="#2）任务间依赖：任务A需要在任务B完成的基础上触发" class="headerlink" title="2）任务间依赖：任务A需要在任务B完成的基础上触发"></a>2）任务间依赖：任务A需要在任务B完成的基础上触发</h5><blockquote><h5 id="3）权限依赖：用户权限管理"><a href="#3）权限依赖：用户权限管理" class="headerlink" title="3）权限依赖：用户权限管理"></a>3）权限依赖：用户权限管理</h5><h5 id="4）机器依赖：任务的执行只能在某些指定机器上执行"><a href="#4）机器依赖：任务的执行只能在某些指定机器上执行" class="headerlink" title="4）机器依赖：任务的执行只能在某些指定机器上执行"></a>4）机器依赖：任务的执行只能在某些指定机器上执行</h5><p><code>在celeryExcuter可以使用不同的用户启动worker，不同的worker监听不同的queue，解决用户权限依赖问题；worker也可以启动在不同的机器上，解决机器依赖问题</code></p><h5 id="5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据"><a href="#5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据" class="headerlink" title="5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据"></a>5）外部系统依赖：依赖各种外部数据库数据等，并且需要调用接口访问外部数据</h5><p><code>有一个hook机制，作用时建立一个与外部数据系统的连接，比如mysql、hdfs、本地文件系统，通过拓展的hook</code></p></blockquote><h5 id="6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制"><a href="#6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制" class="headerlink" title="6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制"></a>6）资源依赖：某些任务消耗机器资源非常多，进行任务执行时需要对任务进行限制</h5><blockquote><p><code>可以为任意的task指定一个抽象的pool，每个pool指定一个slot数，每启动一个task任务就占用一个slot数，当slot数占满之后就进入等待状态</code></p></blockquote><h1 id="3-4-基本使用过程"><a href="#3-4-基本使用过程" class="headerlink" title="3.4 基本使用过程"></a>3.4 基本使用过程</h1><h5 id="1）根据实际需要，使用不同的Operator"><a href="#1）根据实际需要，使用不同的Operator" class="headerlink" title="1）根据实际需要，使用不同的Operator"></a>1）根据实际需要，使用不同的Operator</h5><h5 id="2）传入具体的参数，定义一系列的tasks-operator是task的抽象类"><a href="#2）传入具体的参数，定义一系列的tasks-operator是task的抽象类" class="headerlink" title="2）传入具体的参数，定义一系列的tasks    // operator是task的抽象类"></a>2）传入具体的参数，定义一系列的tasks    // operator是task的抽象类</h5><h5 id="3）定义tasks之间的关系，形成一个DAG"><a href="#3）定义tasks之间的关系，形成一个DAG" class="headerlink" title="3）定义tasks之间的关系，形成一个DAG"></a>3）定义tasks之间的关系，形成一个DAG</h5><h5 id="4）调度DAG运行，每个task会形成一个instance"><a href="#4）调度DAG运行，每个task会形成一个instance" class="headerlink" title="4）调度DAG运行，每个task会形成一个instance"></a>4）调度DAG运行，每个task会形成一个instance</h5><h5 id="5）使用命令或者web-ui进行查看管理"><a href="#5）使用命令或者web-ui进行查看管理" class="headerlink" title="5）使用命令或者web ui进行查看管理"></a>5）使用命令或者web ui进行查看管理</h5>]]></content>
     
     <summary type="html">
     
@@ -290,14 +290,14 @@
     
     </summary>
     
-      <category term="python-框架" scheme="http://yoursite.com/categories/python-%E6%A1%86%E6%9E%B6/"/>
+      <category term="python-框架" scheme="https://mrwayne66ll.github.io/categories/python-%E6%A1%86%E6%9E%B6/"/>
     
     
-      <category term="airflow" scheme="http://yoursite.com/tags/airflow/"/>
+      <category term="airflow" scheme="https://mrwayne66ll.github.io/tags/airflow/"/>
     
-      <category term="centos7" scheme="http://yoursite.com/tags/centos7/"/>
+      <category term="centos7" scheme="https://mrwayne66ll.github.io/tags/centos7/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://mrwayne66ll.github.io/tags/python/"/>
     
   </entry>
   

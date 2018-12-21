@@ -1,0 +1,5 @@
+https://mrwayne66ll.github.io/2018/12/19/product-order/
+https://mrwayne66ll.github.io/2018/12/17/kafka1/
+https://mrwayne66ll.github.io/2018/12/16/kafka2/
+https://mrwayne66ll.github.io/2018/12/16/sql/
+https://mrwayne66ll.github.io/2018/12/11/airflow4/
